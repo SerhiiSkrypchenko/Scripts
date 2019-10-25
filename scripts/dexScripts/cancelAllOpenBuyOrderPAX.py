@@ -1,0 +1,4 @@
+from exchangeFunctions import cancelAllOpenBuyOrderPAX
+import testNet2
+
+cancelAllOpenBuyOrderPAX(testNet2.exchange_peers)

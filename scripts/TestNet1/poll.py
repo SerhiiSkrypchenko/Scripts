@@ -5,4 +5,4 @@ import testNet2
 import testNet1
 import functions
 
-functions.pollTransaction(testNet2.localhost, 285683)
+functions.pollTransaction(testNet2.peer4, 300000)

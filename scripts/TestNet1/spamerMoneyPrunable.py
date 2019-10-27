@@ -1,5 +1,11 @@
+from json import JSONDecodeError
+
 import requests
 import random
+
+import self as self
+from urllib3.exceptions import NewConnectionError, MaxRetryError
+
 import data
 import time
 import functions
@@ -15,7 +21,7 @@ while alive:
         print("-------------")
         i = random.randint(1, 200)
         p = random.randint(1, 200)
-        t1 = random.choice(testNet2.t2All)
+        t1 = random.choice(testNet2.t2)
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET",
@@ -55,6 +61,18 @@ while alive:
         except UnicodeError as e:
             print("Error = " + str(e))
         except json.decoder.JSONDecodeError as e:
+            print("Error = " + str(e))
+        except JSONDecodeError as e:
+            print("Error = " + str(e))
+        except TimeoutError as e:
+            print("Error = " + str(e))
+        except self.raw_decode as e:
+            print("Error = " + str(e))
+        except NewConnectionError as e:
+            print("Error = " + str(e))
+        except ConnectionError as e:
+            print("Error = " + str(e))
+        except MaxRetryError as e:
             print("Error = " + str(e))
         k += 1
         time.sleep(0)

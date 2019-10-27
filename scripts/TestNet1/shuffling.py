@@ -12,4 +12,4 @@ from functions import shufflingTransactions
 #
 #shufflingTransactions(30, testNet3.t3)
 #shufflingTransactions(30, testNet1.t1)
-shufflingTransactions(30, testNet2.t2All)
+shufflingTransactions(30, testNet2.t2)

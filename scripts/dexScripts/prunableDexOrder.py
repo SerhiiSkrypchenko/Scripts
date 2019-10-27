@@ -111,4 +111,4 @@ def prunableBuyOrders(url, vaults, pairRate, offerAmount, amountOfTimeSec):
             print("Error = " + str(e))
         i += 1
 
-prunableDexOrders(testNet2.local, 1800, 1)
+prunableDexOrders(testNet2.exchange_peers, 3000, 1)

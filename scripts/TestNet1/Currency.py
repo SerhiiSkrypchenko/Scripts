@@ -54,7 +54,7 @@ def issueStandardCurrency(url, feeATM, sender, secretPhrase):
 
 
 
-issueStandardCurrency(testNet2.localhost,
+issueStandardCurrency(testNet2.peer2,
               4000000000000,
               "APL-NZKH-MZRE-2CTT-98NPZ",
               "0")

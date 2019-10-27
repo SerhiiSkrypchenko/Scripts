@@ -832,7 +832,7 @@ def phasedTransactions(url):
         response = requests.request("GET", "http://" + url + "/apl", params=querystring)
         print(response.text)
         currentHeight = response.json()["height"]
-        #finishHeight = 300000
+        #finishHeight = 300001
         finishHeight = currentHeight + 10000
         print("-----------------------------------------------------")
         print("Current Height = " + str(currentHeight))
@@ -1867,6 +1867,92 @@ def createPollByBalance(url, finishHeight):
     print("poll by Account Balance " + str(pollBalance))
     print("---- >>> POLL IS CREATED <<< ----")
     return (pollBalance)
+
+
+def referenced_Phased_Transactions(url):
+
+    url = random.choice(url)
+    querystring = {"": "%2Fapl", "requestType": "getBlock"}
+    response = requests.request("GET", "http://" + url + "/apl", params=querystring)
+    # print(response.text)
+    currentHeight = response.json()["height"]
+    print("Current Height = " + str(currentHeight))
+    #finishHeight = 300001
+    finishHeight = currentHeight + 10000
+    print("Finish Height = " + str(finishHeight))
+
+    response = requests.request("POST", "http://" + url + "/apl", data=data.payload,
+                                headers=data.headers,
+                                params=data.sendMoneyPhased(conf.account2,
+                                                               str(random.randint(2000000000, 200000000000)),
+                                                               conf.account1SecretPhrase,
+                                                               "3300000000",
+                                                               conf.sender1,
+                                                               str(finishHeight)))
+
+
+    #print(response.json())
+    fullHash = response.json()["fullHash"]
+    #print("fullHash = " + fullHash)
+    alive = True
+    while alive:
+        k = 1
+        for k in range(1, 201):
+            print("<<<<< START >>>>>>")
+            url = random.choice(testNet2.t2)
+            print(k)
+            print("URL = " + url)
+            querystring = {"": "%2Fapl", "requestType": "getBlock"}
+            response = requests.request("GET", "http://" + url + "/apl", params=querystring)
+            # print(response.text)
+            currentHeight = response.json()["height"]
+            print("Current Height = " + str(currentHeight))
+            #finish_Height = 299999
+            finish_Height = finishHeight - 2000 - ( 30 * k )
+            print("Finish_Height = " + str(finish_Height))
+
+            i = random.randint(1, 200)
+            p = random.randint(1, 200)
+            getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
+            response = requests.request("GET",
+                                        "http://" + url + "/apl",
+                                        params=getAccountId)
+            #print(response.json())
+            accountReceive = response.json()["accountRS"]
+            #print("-------------")
+            print(str("accountReceive = " + accountReceive))
+            #print("-------------")
+
+            getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
+            response = requests.request("GET",
+                                        "http://" + url + "/apl",
+                                        params=getAccountId)
+            #print(response.json())
+            accountSender = response.json()["accountRS"]
+            sender = response.json()["account"]
+            #print("-------------")
+            print(str("accountSender = " + accountSender))
+            #print(str("account = " + sender))
+            #print("-------------")
+
+            response = requests.request("POST",
+                                        "http://" + url + "/apl",
+                                        params=data.sendMoney_Phased_Referenced(str(accountReceive),
+                                                                                str(random.randint(2000000000,
+                                                                                                   200000000000)),
+                                                                                str(p),
+                                                                                "3000000000",
+                                                                                sender,
+                                                                                finish_Height,
+                                                                                fullHash))
+            print(response.json())
+            fullHash = response.json()["fullHash"]
+            print("<<<<< END >>>>>")
+            print()
+            k += 1
+            time.sleep(0)
+
+
 
 
 def referencedSendMoneyTransactions(url):

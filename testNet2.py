@@ -17,6 +17,7 @@ localhost = "localhost:7876"
 #peer9 = "51.15.233.93"
 t2All = ([peer1, peer2, peer3, peer4, peer5, peer6, peer7])
 
-t2 = ([peer1, peer2, peer4, peer5, peer6])
+t2 = ([peer2, peer4, peer5, peer6, peer3, peer7])
 local = ([localhost])
 exchange_peers = ([peer1])
+peerPoll = (["51.15.228.126"])

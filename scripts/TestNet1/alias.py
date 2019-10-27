@@ -7,7 +7,7 @@ from functions import aliasTransactions
 import testNet2
 
 
-aliasTransactions(testNet2.localhost)
+aliasTransactions(testNet2.peer6)
 
 #aliasTransactionsTn(testNet2.t2)
 

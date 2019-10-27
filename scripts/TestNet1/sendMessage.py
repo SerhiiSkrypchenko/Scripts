@@ -10,4 +10,4 @@ from testNet2 import t2
 import testNet2
 import testNet3
 
-sendMessage(testNet2.t2All)
+sendMessage(testNet2.t2)

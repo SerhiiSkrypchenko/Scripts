@@ -19,15 +19,16 @@ while alive:
 
         i = random.randint(1, 200)
         t1 = random.choice(testNet2.t2)
+        print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET", "http://" + t1 + "/apl",
                                     params=getAccountId)
         # response.status_code
         #print(response.json())
         accountReceive = response.json()["accountRS"]
-        print("-------------")
+        #print("-------------")
         print(str("accountReceive = " + accountReceive))
-        print("-------------")
+        #print("-------------")
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
         response = requests.request("GET",
@@ -36,11 +37,11 @@ while alive:
         #print(response.json())
         accountSender = response.json()["accountRS"]
         sender = response.json()["account"]
-        print("-------------")
+        #print("-------------")
         print(str("accountSender = " + accountSender))
-        print(str("account = " + sender))
-        print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
-        print("-------------")
+        #print(str("account = " + sender))
+        #print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
+        #print("-------------")
 
         response = requests.request("POST",
                                     "http://" + t1 + "/apl",
@@ -52,8 +53,8 @@ while alive:
                                                                                          "400000000",
                                                                                          sender))
         print(response.json())
-        print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
-        print("----------------------------------------------------------------------------------------------")
+        #print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
+        print()
         #time.sleep(1)
         p += 1
 

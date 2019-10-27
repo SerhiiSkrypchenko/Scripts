@@ -11,5 +11,5 @@ import testNet2
 from exchangeFunctions import dexOrders2
 
 
-dexOrders2(testNet2.local, 0, 1)
+dexOrders2(testNet2.exchange_peers, 0, 1)
 

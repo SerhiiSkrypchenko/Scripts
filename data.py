@@ -29,3 +29,9 @@ def sendMoneyPhased(recipient, amountATM, secretPhrase, feeATM, sender, phasingF
             "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
             "sender": sender, "phasingFinishHeight": phasingFinishHeight, "phased": "true", "phasingVotingModel": "1",
             "phasingQuorum": "1"}
+
+def sendMoney_Phased_Referenced(recipient, amountATM, secretPhrase, feeATM, sender, phasingFinishHeight, referencedTransactionFullHash):
+    return {"requestType": "sendMoney", "recipient": recipient, "amountATM": amountATM,
+            "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
+            "sender": sender, "phasingFinishHeight": phasingFinishHeight, "phased": "true", "phasingVotingModel": "1",
+            "phasingQuorum": "1", "referencedTransactionFullHash": referencedTransactionFullHash}

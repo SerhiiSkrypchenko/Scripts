@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38658387-4473-48bd-9ec0-f5ac2ab701cf" name="Default Changelist" comment="" />
+    <list default="true" id="00f6c8ad-fa2e-4a59-b624-8eeae596e2a4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +17,12 @@
   </component>
   <component name="ProjectId" id="1SKFx4qo6s36q3Ruw7d5a5LXpaa" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts/dexScripts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts/TestNet1" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Apollo\Scripts\scripts\TestNet1" />
       <recent name="C:\Users\skrypchenko\PycharmProjects\ApolloLoadingScripts\scripts\dexScripts" />
       <recent name="C:\Users\skrypchenko\PycharmProjects\ApolloLoadingScripts" />
     </key>
@@ -38,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dexOrdersCorrect">
+  <component name="RunManager" selected="Python.restShards">
     <configuration name="dexOrdersCorrect" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ApolloLoadingScripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,6 +103,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sendMoney_Referenced_Phased" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ApolloLoadingScripts" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/TestNet1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/TestNet1/sendMoney_Referenced_Phased.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="shuffling" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ApolloLoadingScripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,34 +145,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="spamerMoneyPrunable" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ApolloLoadingScripts" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/TestNet1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/TestNet1/spamerMoneyPrunable.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.restShards" />
+        <item itemvalue="Python.sendMoney_Referenced_Phased" />
         <item itemvalue="Python.dexOrdersCorrect" />
         <item itemvalue="Python.shuffling" />
-        <item itemvalue="Python.restShards" />
         <item itemvalue="Python.loginVaultWallets" />
-        <item itemvalue="Python.spamerMoneyPrunable" />
       </list>
     </recent_temporary>
   </component>

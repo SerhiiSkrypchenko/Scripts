@@ -2093,6 +2093,97 @@ def referencedSendMoneyTransactions(url):
                         k += 1
 
 
+def referenced_Phased_SendMoney(url):
+    url1 = random.choice(url)
+    querystring = {"": "%2Fapl", "requestType": "getBlock"}
+    response = requests.request("GET", "http://" + url1 + "/apl", params=querystring)
+    #print(response.text)
+    currentHeight = response.json()["height"]
+    # finishHeight = 300000
+    finishHeight = currentHeight + 10000
+    #print("-----------------------------------------------------")
+    print("Current Height = " + str(currentHeight))
+    print("Finish Height = " + str(finishHeight))
+    #print("-----------------------------------------------------")
+    try:
+        response = requests.request("POST", "http://" + url1 + "/apl", data=data.payload,
+                                            headers=data.headers,
+                                            params=data.sendMoneyPhased(conf.account2,
+                                                                        "20000000000",
+                                                                        conf.account1SecretPhrase,
+                                                                        "5000000000",
+                                                                        conf.sender1,
+                                                                        finishHeight))
+        #print(response.json())
+        fullHash = response.json()["fullHash"]
+        #print("fullHash #1 = " + fullHash)
+    except requests.exceptions.ConnectionError:
+        requests.status_code = "Connection refused"
+    except UnicodeError as e:
+        print("Error = " + str(e))
+    except json.decoder.JSONDecodeError as e:
+        print("Error = " + str(e))
+
+    alive = True
+    while alive:
+        k = 1
+        for k in range(1, 201):
+            print(" <<<<< START >>>>>> ")
+            print(k)
+            #print("-------------")
+            i = random.randint(1, 200)
+            p = random.randint(1, 200)
+            node = random.choice(url)
+            print("NODE = " + node)
+            try:
+                getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
+                response = requests.request("GET",
+                                            "http://" + node + "/apl",
+                                            params=getAccountId)
+                #print(response.json())
+                accountReceive = response.json()["accountRS"]
+                #print("-------------")
+                print(str("accountReceive = " + accountReceive))
+                #print("-------------")
+
+                getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
+                response = requests.request("GET",
+                                        "http://" + node + "/apl",
+                                        params=getAccountId)
+                #print(response.json())
+                accountSender = response.json()["accountRS"]
+                sender = response.json()["account"]
+                #print("-------------")
+                print(str("accountSender = " + accountSender))
+                #print(str("account = " + sender))
+                #print("-------------")
+                finish_Height = finishHeight - 1000 - k * 30
+                print("Finish_Height = " + str(finish_Height))
+                #print("FULL HASH of " + str(k) + " = " + fullHash)
+                response = requests.request("POST",
+                                            "http://" + node + "/apl",
+                                            params=data.sendMoney_Phased_Referenced(str(accountReceive),
+                                                                                str(random.randint(2000000000, 200000000000)),
+                                                                                str(p),
+                                                                                "4000000000",
+                                                                                sender,
+                                                                                finish_Height,
+                                                                                fullHash))
+                print(response.json())
+                fullHash = response.json()["fullHash"]
+                #print("FULLHASH for NEXT transaction is " + fullHash)
+                print("--------------- END -----------------")
+            except requests.exceptions.ConnectionError:
+                requests.status_code = "Connection refused"
+            except UnicodeError as e:
+                print("Error = " + str(e))
+            except json.decoder.JSONDecodeError as e:
+                print("Error = " + str(e))
+            k += 1
+            time.sleep(0)
+
+
+
 def popOff(url, height):
     print("---------- START POP OFF on --->>> " + url + " <<< ----")
     querystring = {"requestType": "popOff", "adminPassword": "1", "height": str(height)}

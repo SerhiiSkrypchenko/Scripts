@@ -16,13 +16,8 @@ localhost = "localhost:7876"
 #peer8 = "51.15.100.44"
 #peer9 = "51.15.233.93"
 t2All = ([peer2, peer3, peer4, peer6, peer1, peer5, peer7])
-
-<<<<<<< Updated upstream
-t2 = ([peer2, peer4, peer5, peer6, peer3, peer7])
-=======
 t2 = ([peer5, peer7, peer6, peer1, peer3])
-#t2 = ([peer2, peer6, peer4, peer7, peer3])
->>>>>>> Stashed changes
+
 local = ([localhost])
 exchange_peers = ([peer1])
 peerPoll = (["51.15.228.126"])

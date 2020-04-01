@@ -6,4 +6,4 @@ import testNet1
 import testNet2
 
 
-functions.phasedTransactions(testNet2.peer3)
+functions.phasedTransactions(testNet2.t2)

@@ -56,15 +56,9 @@ def issueStandardCurrency(url, feeATM, secretPhrase):
     return response
 
 
-<<<<<<< Updated upstream
 
-issueStandardCurrency(testNet2.peer2,
-              4000000000000,
-              "APL-NZKH-MZRE-2CTT-98NPZ",
-              "0")
-=======
 while True:
-    url = random.choice(testNet2.peer1)
+    url = random.choice(testNet2.t2)
     for i in range(0, len(vaults)):
         account = vaults[i].account
         print("ACCOUNT = " + str(account))
@@ -77,4 +71,4 @@ while True:
         issueStandardCurrency(url,
                             4000000000000,
                             str(i))
->>>>>>> Stashed changes
+

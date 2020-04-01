@@ -1010,13 +1010,8 @@ def phasedTransactions(url):
         response = requests.request("GET", "http://" + peer + "/apl", params=querystring)
         print(response.text)
         currentHeight = response.json()["height"]
-<<<<<<< Updated upstream
-        #finishHeight = 300001
-        finishHeight = currentHeight + 10000
-=======
         #finishHeight = 270001
         finishHeight = currentHeight + 1500
->>>>>>> Stashed changes
         print("-----------------------------------------------------")
         print("Current Height = " + str(currentHeight))
         print("Finish Height = " + str(finishHeight))
@@ -1863,11 +1858,6 @@ def referencedSendMoneyTransactions(url):
             print("----------------------------------------------------------------------------------------------")
             k += 1
 
-
-
-<<<<<<< Updated upstream
-def popOff(url, height):
-=======
 def referenced_Phased_SendMoney(url):
     url1 = random.choice(url)
     querystring = {"": "%2Fapl", "requestType": "getBlock"}
@@ -1960,7 +1950,6 @@ def referenced_Phased_SendMoney(url):
 
 
 def popOffByHeight(url, height):
->>>>>>> Stashed changes
     print("---------- START POP OFF on --->>> " + url + " <<< ----")
     querystring = {"requestType": "popOff", "adminPassword": "1", "height": str(height)}
     response = requests.request("POST", "http://" + url + "/apl", params=querystring)

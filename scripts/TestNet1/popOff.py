@@ -14,7 +14,7 @@ import karantin
 #functions.popOffByHeight("51.15.218.241", 89000)
 
 #functions.popOffByBlocks(testNet2.localhost, 10000)
-#functions.popOff(testNet2.peer2, 349988)
+functions.popOff(testNet2.peer2, 349988)
 functions.popOffByBlocks(testNet2.peer7, 2000)
 #functions.popOffByBlocks(karantin.peer1, 4000)
 #functions.popOffByBlocks(karantin.peer4, 4000)

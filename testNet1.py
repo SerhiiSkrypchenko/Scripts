@@ -9,5 +9,5 @@ peer6 = "51.15.100.44" #no shards #apl-t2-8.testnet.apollowallet.org
 peer7 = "51.15.233.93" #apl-t2-9.testnet.apollowallet.org
 localhost = "localhost:7876"
 apollowallet = "wallet.test.apollowallet.org"
-t1 = (peer1, peer4, peer6)
+t1 = (peer2, peer3, peer5, peer6)
 local = ([localhost])

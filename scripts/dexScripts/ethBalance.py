@@ -10,4 +10,4 @@ import testNet3
 import testNet2
 
 
-exchangeFunctions.ethBalance(testNet2.peer1)
+exchangeFunctions.ethBalance(testNet2.localhost)

@@ -17,6 +17,11 @@ def sendMoneyFromStandardWalletToVaultWallet(recipient, amountATM, secretPhrase,
             "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
             "sender": sender}
 
+def sendMoneyPrivate(recipient, amountATM, secretPhrase, feeATM, sender):
+    return {"requestType": "sendMoneyPrivate", "recipient": recipient, "amountATM": amountATM,
+            "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
+            "sender": sender}
+
 
 def sendMoneyReferenced(recipient, amountATM, secretPhrase, feeATM, sender, referencedTransactionFullHash):
     return {"requestType": "sendMoney", "recipient": recipient, "amountATM": amountATM,

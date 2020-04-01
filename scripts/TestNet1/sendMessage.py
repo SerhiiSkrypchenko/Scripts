@@ -10,4 +10,8 @@ from testNet2 import t2
 import testNet2
 import testNet3
 
+<<<<<<< Updated upstream
 sendMessage(testNet2.t2)
+=======
+sendMessage(t2)
+>>>>>>> Stashed changes

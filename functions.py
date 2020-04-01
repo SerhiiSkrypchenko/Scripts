@@ -9,6 +9,13 @@ import data
 import conf
 import string
 import json
+import karantin
+import mainNet
+
+
+
+
+
 
 def getCurrentHeight(url):
     querystring = {"": "%2Fapl", "requestType": "getBlock"}
@@ -41,19 +48,77 @@ def getCurrentHeightTn(tn):
             heightPeer5 = getCurrentHeight(testNet2.peer5)
             heightPeer6 = getCurrentHeight(testNet2.peer6)
             heightPeer7 = getCurrentHeight(testNet2.peer7)
-            minHeight = min(heightPeer1, heightPeer2, heightPeer3, heightPeer4, heightPeer5, heightPeer6, heightPeer7)
+            minHeight = min(heightPeer1, heightPeer3, heightPeer5, heightPeer4, heightPeer7, heightPeer6, heightPeer2)
             # minHeight = min(heightPeer1, heightPeer2, heightPeer5, heightPeer6, heightPeer7)
             print("min Height = " + str(minHeight) + " blocks")
             return minHeight
         else:
-            heightPeer1 = getCurrentHeight(testNet3.peer1)
-            heightPeer2 = getCurrentHeight(testNet3.peer2)
-            heightPeer3 = getCurrentHeight(testNet3.peer3)
-            heightPeer4 = getCurrentHeight(testNet3.peer4)
-            # heightPeer5 = getCurrentHeight(testNet3.peer5)
-            minHeight = min(heightPeer1, heightPeer2, heightPeer3, heightPeer4)
-            print("min Height = " + str(minHeight) + " blocks")
-            return minHeight
+            if tn == testNet3.t3:
+                heightPeer1 = getCurrentHeight(testNet3.peer1)
+                heightPeer2 = getCurrentHeight(testNet3.peer2)
+                heightPeer3 = getCurrentHeight(testNet3.peer3)
+                heightPeer4 = getCurrentHeight(testNet3.peer4)
+                heightPeer5 = getCurrentHeight(testNet3.peer5)
+                heightPeer6 = getCurrentHeight(testNet3.peer6)
+                minHeight = min(heightPeer6, heightPeer3, heightPeer4, heightPeer1, heightPeer2, heightPeer5)
+                print("min Height = " + str(minHeight) + " blocks")
+                return minHeight
+            else:
+                if tn == karantin.karantin:
+                    heightPeer1 = getCurrentHeight(karantin.peer1)
+                    heightPeer2 = getCurrentHeight(karantin.peer2)
+                    heightPeer3 = getCurrentHeight(karantin.peer3)
+                    heightPeer4 = getCurrentHeight(karantin.peer4)
+                    heightPeer5 = getCurrentHeight(karantin.peer5)
+                    heightPeer6 = getCurrentHeight(karantin.peer6)
+                    heightPeer7 = getCurrentHeight(karantin.peer7)
+                    minHeight = min(heightPeer1, heightPeer2, heightPeer3, heightPeer4, heightPeer5, heightPeer6,
+                                    heightPeer7)
+                    # minHeight = min(heightPeer1, heightPeer2, heightPeer5, heightPeer6, heightPeer7)
+                    print("min Height = " + str(minHeight) + " blocks")
+                    return minHeight
+                else:
+                    heightPeer1 = getCurrentHeight(mainNet.peer1)
+                    heightPeer2 = getCurrentHeight(mainNet.peer2)
+                    heightPeer3 = getCurrentHeight(mainNet.peer3)
+                    heightPeer4 = getCurrentHeight(mainNet.peer4)
+                    heightPeer5 = getCurrentHeight(mainNet.peer5)
+                    heightPeer6 = getCurrentHeight(mainNet.peer6)
+                    heightPeer7 = getCurrentHeight(mainNet.peer7)
+                    heightPeer8 = getCurrentHeight(mainNet.peer8)
+                    heightPeer9 = getCurrentHeight(mainNet.peer9)
+                    heightPeer10 = getCurrentHeight(mainNet.peer10)
+                    heightPeer11 = getCurrentHeight(mainNet.peer11)
+                    heightPeer12 = getCurrentHeight(mainNet.peer12)
+                    heightPeer13 = getCurrentHeight(mainNet.peer13)
+                    heightPeer14 = getCurrentHeight(mainNet.peer14)
+                    heightPeer15 = getCurrentHeight(mainNet.peer15)
+                    heightPeer16 = getCurrentHeight(mainNet.peer16)
+                    heightPeer17 = getCurrentHeight(mainNet.peer17)
+                    heightPeer18 = getCurrentHeight(mainNet.peer18)
+                    heightPeer19 = getCurrentHeight(mainNet.peer19)
+                    heightPeer20 = getCurrentHeight(mainNet.peer20)
+                    heightPeer21 = getCurrentHeight(mainNet.peer21)
+                    heightPeer22 = getCurrentHeight(mainNet.peer22)
+                    heightPeer23 = getCurrentHeight(mainNet.peer23)
+                    heightPeer24 = getCurrentHeight(mainNet.peer24)
+                    heightPeer25 = getCurrentHeight(mainNet.peer25)
+                    heightPeer26 = getCurrentHeight(mainNet.peer26)
+                    heightPeer27 = getCurrentHeight(mainNet.peer27)
+                    heightPeer28 = getCurrentHeight(mainNet.peer28)
+                    heightPeer29 = getCurrentHeight(mainNet.peer29)
+                    heightPeer30 = getCurrentHeight(mainNet.peer30)
+                    heightPeer31 = getCurrentHeight(mainNet.peer31)
+                    heightPeer32 = getCurrentHeight(mainNet.peer32)
+                    minHeight = min(heightPeer1, heightPeer2, heightPeer3, heightPeer4, heightPeer5, heightPeer6,
+                                    heightPeer7, heightPeer8, heightPeer9, heightPeer10, heightPeer11, heightPeer12,
+                                    heightPeer13, heightPeer14, heightPeer15, heightPeer16, heightPeer17, heightPeer18,
+                                    heightPeer19, heightPeer20, heightPeer21, heightPeer22, heightPeer23, heightPeer24,
+                                    heightPeer25, heightPeer26, heightPeer27, heightPeer28, heightPeer29, heightPeer30,
+                                    heightPeer31, heightPeer32)
+                    # minHeight = min(heightPeer1, heightPeer2, heightPeer5, heightPeer6, heightPeer7)
+                    print("min Height = " + str(minHeight) + " blocks")
+                    return minHeight
 
 
 def getForkHeight(tn):
@@ -93,7 +158,7 @@ def getForkHeight(tn):
         peer6BlockId = getBlockId(startHeight, testNet2.peer6)
         peer7BlockId = getBlockId(startHeight, testNet2.peer7)
         print(" <<< ------- >>> ")
-        while not (peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId):
+        while not (peer1BlockId == peer2BlockId == peer3BlockId == peer5BlockId == peer6BlockId == peer4BlockId == peer7BlockId):
                 #peer1BlockId == peer2BlockId == peer4BlockId == peer6BlockId == peer5BlockId == peer7BlockId):
             #peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId
             startHeight = startHeight - 1
@@ -114,24 +179,129 @@ def getForkHeight(tn):
         peer2BlockId = getBlockId(startHeight, testNet3.peer2)
         peer3BlockId = getBlockId(startHeight, testNet3.peer3)
         peer4BlockId = getBlockId(startHeight, testNet3.peer4)
-        # peer5BlockId = getBlockId(startHeight, testNet3.peer5)
+        peer5BlockId = getBlockId(startHeight, testNet3.peer5)
+        peer6BlockId = getBlockId(startHeight, testNet3.peer6)
         print(" <<< ------- >>> ")
-        while not peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId:
+        while not peer6BlockId == peer3BlockId == peer4BlockId == peer2BlockId == peer1BlockId == peer5BlockId:
             startHeight = startHeight - 1
             peer1BlockId = getBlockId(startHeight, testNet3.peer1)
             peer2BlockId = getBlockId(startHeight, testNet3.peer2)
             peer3BlockId = getBlockId(startHeight, testNet3.peer3)
             peer4BlockId = getBlockId(startHeight, testNet3.peer4)
-            # peer5BlockId = getBlockId(startHeight, testNet3.peer5)
+            peer5BlockId = getBlockId(startHeight, testNet3.peer5)
+            peer6BlockId = getBlockId(startHeight, testNet3.peer6)
+            print(" <<< ------- >>> ")
+
+    def getForkKarantin():
+        startHeight = getCurrentHeightTn(tn)
+        print(startHeight)
+        print(" <<< ------- >>> ")
+        peer1BlockId = getBlockId(startHeight, karantin.peer1)
+        peer2BlockId = getBlockId(startHeight, karantin.peer2)
+        peer3BlockId = getBlockId(startHeight, karantin.peer3)
+        peer4BlockId = getBlockId(startHeight, karantin.peer4)
+        peer5BlockId = getBlockId(startHeight, karantin.peer5)
+        peer6BlockId = getBlockId(startHeight, karantin.peer6)
+        peer7BlockId = getBlockId(startHeight, karantin.peer7)
+        print(" <<< ------- >>> ")
+        while not (peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId):
+                #peer1BlockId == peer2BlockId == peer4BlockId == peer6BlockId == peer5BlockId == peer7BlockId):
+            #peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId
+            startHeight = startHeight - 1
+            peer1BlockId = getBlockId(startHeight, karantin.peer1)
+            peer2BlockId = getBlockId(startHeight, karantin.peer2)
+            peer3BlockId = getBlockId(startHeight, karantin.peer3)
+            peer4BlockId = getBlockId(startHeight, karantin.peer4)
+            peer5BlockId = getBlockId(startHeight, karantin.peer5)
+            peer6BlockId = getBlockId(startHeight, karantin.peer6)
+            peer7BlockId = getBlockId(startHeight, karantin.peer7)
+            print(" <<< ------- >>> ")
+
+    def getForkMainNet():
+        startHeight = getCurrentHeightTn(tn)
+        print(startHeight)
+        print(" <<< ------- >>> ")
+        peer1BlockId = getBlockId(startHeight, mainNet.peer1)
+        peer2BlockId = getBlockId(startHeight, mainNet.peer2)
+        peer3BlockId = getBlockId(startHeight, mainNet.peer3)
+        peer4BlockId = getBlockId(startHeight, mainNet.peer4)
+        peer5BlockId = getBlockId(startHeight, mainNet.peer5)
+        peer6BlockId = getBlockId(startHeight, mainNet.peer6)
+        peer7BlockId = getBlockId(startHeight, mainNet.peer7)
+        peer8BlockId = getBlockId(startHeight, mainNet.peer8)
+        peer9BlockId = getBlockId(startHeight, mainNet.peer9)
+        peer10BlockId = getBlockId(startHeight, mainNet.peer10)
+        peer11BlockId = getBlockId(startHeight, mainNet.peer11)
+        peer12BlockId = getBlockId(startHeight, mainNet.peer12)
+        peer13BlockId = getBlockId(startHeight, mainNet.peer13)
+        peer14BlockId = getBlockId(startHeight, mainNet.peer14)
+        peer15BlockId = getBlockId(startHeight, mainNet.peer15)
+        peer16BlockId = getBlockId(startHeight, mainNet.peer16)
+        peer17BlockId = getBlockId(startHeight, mainNet.peer17)
+        peer18BlockId = getBlockId(startHeight, mainNet.peer18)
+        peer19BlockId = getBlockId(startHeight, mainNet.peer19)
+        peer20BlockId = getBlockId(startHeight, mainNet.peer20)
+        peer21BlockId = getBlockId(startHeight, mainNet.peer21)
+        peer22BlockId = getBlockId(startHeight, mainNet.peer22)
+        peer23BlockId = getBlockId(startHeight, mainNet.peer23)
+        peer24BlockId = getBlockId(startHeight, mainNet.peer24)
+        peer25BlockId = getBlockId(startHeight, mainNet.peer25)
+        peer26BlockId = getBlockId(startHeight, mainNet.peer26)
+        peer27BlockId = getBlockId(startHeight, mainNet.peer27)
+        peer28BlockId = getBlockId(startHeight, mainNet.peer28)
+        peer29BlockId = getBlockId(startHeight, mainNet.peer29)
+        peer30BlockId = getBlockId(startHeight, mainNet.peer30)
+        peer31BlockId = getBlockId(startHeight, mainNet.peer31)
+        peer32BlockId = getBlockId(startHeight, mainNet.peer32)
+        print(" <<< ------- >>> ")
+        while not (peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId == peer8BlockId == peer9BlockId == peer10BlockId == peer11BlockId == peer12BlockId == peer13BlockId == peer14BlockId == peer15BlockId == peer16BlockId == peer17BlockId == peer18BlockId == peer19BlockId == peer20BlockId == peer21BlockId == peer22BlockId == peer23BlockId == peer24BlockId == peer25BlockId == peer26BlockId == peer27BlockId == peer28BlockId == peer29BlockId == peer30BlockId == peer31BlockId == peer32BlockId):
+                #peer1BlockId == peer2BlockId == peer4BlockId == peer6BlockId == peer5BlockId == peer7BlockId):
+            #peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId
+            startHeight = startHeight - 1
+            peer1BlockId = getBlockId(startHeight, mainNet.peer1)
+            peer2BlockId = getBlockId(startHeight, mainNet.peer2)
+            peer3BlockId = getBlockId(startHeight, mainNet.peer3)
+            peer4BlockId = getBlockId(startHeight, mainNet.peer4)
+            peer5BlockId = getBlockId(startHeight, mainNet.peer5)
+            peer6BlockId = getBlockId(startHeight, mainNet.peer6)
+            peer7BlockId = getBlockId(startHeight, mainNet.peer7)
+            peer8BlockId = getBlockId(startHeight, mainNet.peer8)
+            peer9BlockId = getBlockId(startHeight, mainNet.peer9)
+            peer10BlockId = getBlockId(startHeight, mainNet.peer10)
+            peer11BlockId = getBlockId(startHeight, mainNet.peer11)
+            peer12BlockId = getBlockId(startHeight, mainNet.peer12)
+            peer13BlockId = getBlockId(startHeight, mainNet.peer13)
+            peer14BlockId = getBlockId(startHeight, mainNet.peer14)
+            peer15BlockId = getBlockId(startHeight, mainNet.peer15)
+            peer16BlockId = getBlockId(startHeight, mainNet.peer16)
+            peer17BlockId = getBlockId(startHeight, mainNet.peer17)
+            peer18BlockId = getBlockId(startHeight, mainNet.peer18)
+            peer19BlockId = getBlockId(startHeight, mainNet.peer19)
+            peer20BlockId = getBlockId(startHeight, mainNet.peer20)
+            peer21BlockId = getBlockId(startHeight, mainNet.peer21)
+            peer22BlockId = getBlockId(startHeight, mainNet.peer22)
+            peer23BlockId = getBlockId(startHeight, mainNet.peer23)
+            peer24BlockId = getBlockId(startHeight, mainNet.peer24)
+            peer25BlockId = getBlockId(startHeight, mainNet.peer25)
+            peer26BlockId = getBlockId(startHeight, mainNet.peer26)
+            peer27BlockId = getBlockId(startHeight, mainNet.peer27)
+            peer28BlockId = getBlockId(startHeight, mainNet.peer28)
+            peer29BlockId = getBlockId(startHeight, mainNet.peer29)
+            peer30BlockId = getBlockId(startHeight, mainNet.peer30)
+            peer31BlockId = getBlockId(startHeight, mainNet.peer31)
+            peer32BlockId = getBlockId(startHeight, mainNet.peer32)
             print(" <<< ------- >>> ")
 
     if tn == testNet1.t1:
         getForkTn1()
+    elif tn == testNet2.t2:
+        getForkTn2()
+    elif tn == testNet3.t3:
+        getForkTn3()
+    elif tn == mainNet.all:
+        getForkMainNet()
     else:
-        if tn == testNet2.t2:
-            getForkTn2()
-        else:
-            getForkTn3()
+        getForkKarantin()
 
 
 def getBlockId(height, url):
@@ -201,9 +371,9 @@ def restShardsTn(tn):
         restShards(testNet1.peer4)
         print("<<<<< --------- apl-t1-5.testnet.apollowallet.org #wallet.test.apollowallet.org ------- >>>>>>")
         restShards(testNet1.peer5)
-        print("<<<<< --------- #apl-t2-8.testnet.apollowallet.org ------- >>>>>>")
+        print("<<<<< --------- #apl-t1-8.testnet.apollowallet.org ------- >>>>>>")
         restShards(testNet1.peer6)
-        print("<<<<< --------- #apl-t2-9.testnet.apollowallet.org ------- >>>>>>")
+        print("<<<<< --------- #apl-t1-9.testnet.apollowallet.org ------- >>>>>>")
         restShards(testNet1.peer7)
     else:
         if tn == testNet2.t2:
@@ -217,7 +387,7 @@ def restShardsTn(tn):
             restShards(testNet2.peer4)
             print("<<<<< --------- apl-t2-3.testnet2.testnet.apollowallet.org  ------- >>>>>>")
             restShards(testNet2.peer5)
-            print("<<<<< --------- apl-t2-8.testnetapl-redesign.testnet2.apollowallet.org ------- >>>>>>")
+            print("<<<<< --------- testnetapl-redesign.testnet2.apollowallet.org ------- >>>>>>")
             restShards(testNet2.peer6)
             print("<<<<< --------- apl-t2-0.testnet2apl-t2-0.testnet2.testnet.apollowallet.org apl-t2-9.testnetapl-exchange.testnet.apollowallet.org ------- >>>>>>")
             restShards(testNet2.peer7)
@@ -227,6 +397,7 @@ def restShardsTn(tn):
             restShards(testNet3.peer3)
             restShards(testNet3.peer4)
             restShards(testNet3.peer5)
+            restShards(testNet3.peer6)
 
 
 def blockChainStatus(url):
@@ -322,8 +493,8 @@ def startForging(peer, fromAccount, toAccount):
         # print(str(account))
         startForging = {"requestType": "startForging", "secretPhrase": str(k), "sender": str(account),
                         "deadline": "1440"}
-        response = requests.request("POST", "http://" + urls + "/apl", params=startForging)
-        # print(response.text)
+        response_StartForging = requests.request("POST", "http://" + urls + "/apl", params=startForging)
+        print(response_StartForging.json())
         print(str(k) + " request <<<< ------ Account " + account + " with secretPhrase " + str(
             k) + " on peer " + urls + " is started ------------- >>>>")
         k += 1
@@ -430,6 +601,11 @@ def stopForgingTn(url):
                 response = requests.request("POST", "http://" + testNet3.peer5 + "/apl", params=querystring)
                 print(response.text)
                 print(" <<< ------------------  FORGING STOPPED ON " + testNet3.peer5 + "---------------------- >>> ")
+
+                querystring = {"requestType": "stopForging", "adminPassword": "1"}
+                response = requests.request("POST", "http://" + testNet3.peer6 + "/apl", params=querystring)
+                print(response.text)
+                print(" <<< ------------------  FORGING STOPPED ON " + testNet3.peer6 + "---------------------- >>> ")
             else:
                 print("----------------------------------------------------------------------")
                 querystring = {"requestType": "stopForging", "adminPassword": "1"}
@@ -828,12 +1004,19 @@ def sendMoneyPhased(recipient, amountATM, secretPhrase, feeATM, sender, phasingF
 def phasedTransactions(url):
     alive = True
     while alive:
+        peer = random.choice(url)
+        print(peer)
         querystring = {"": "%2Fapl", "requestType": "getBlock"}
-        response = requests.request("GET", "http://" + url + "/apl", params=querystring)
+        response = requests.request("GET", "http://" + peer + "/apl", params=querystring)
         print(response.text)
         currentHeight = response.json()["height"]
+<<<<<<< Updated upstream
         #finishHeight = 300001
         finishHeight = currentHeight + 10000
+=======
+        #finishHeight = 270001
+        finishHeight = currentHeight + 1500
+>>>>>>> Stashed changes
         print("-----------------------------------------------------")
         print("Current Height = " + str(currentHeight))
         print("Finish Height = " + str(finishHeight))
@@ -844,9 +1027,11 @@ def phasedTransactions(url):
             print("-------------")
             i = random.randint(1, 200)
             p = random.randint(1, 200)
+            peer = random.choice(url)
+            print(peer)
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
             response = requests.request("GET",
-                                        "http://" + url + "/apl",
+                                        "http://" + peer + "/apl",
                                         params=getAccountId)
             accountReceive = response.json()["accountRS"]
             print(str("accountReceive = " + accountReceive))
@@ -854,7 +1039,7 @@ def phasedTransactions(url):
 
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
             response = requests.request("GET",
-                                        "http://" + url + "/apl",
+                                        "http://" + peer + "/apl",
                                         params=getAccountId)
             accountSender = response.json()["accountRS"]
             sender = response.json()["account"]
@@ -863,7 +1048,7 @@ def phasedTransactions(url):
             print("------------------------------")
 
             response = requests.request("POST",
-                                        "http://" + url + "/apl",
+                                        "http://" + peer + "/apl",
                                         params=sendMoneyPhased(str(accountReceive),
                                                                str(random.randint(2000000000, 200000000000)),
                                                                str(p),
@@ -909,10 +1094,19 @@ def aliasTransactions(url):
             print(str("account = " + sender))
             print(
                 "------------------------------------------ CREATING ALIAS #1 ----------------------------------------")
-            aliasname = "A" + str(random.randint(1, 10000))
+            aliasname = "A" \
+                        "" \
+                        "" \
+                        "" + str(random.randint(1, 10000))
             createAliasURL = {"requestType": "setAlias", "aliasName": aliasname,
                               "feeATM": "2500000000",
-                              "aliasURI": "www.destroy" + str(random.randint(1, 30)) + ".com",
+                              "aliasURI": "www.destroy"
+                                          ""
+                                          ""
+                                          ""
+                                          ""
+                                          ""
+                                          "" + str(random.randint(1, 30)) + ".com",
                               "secretPhrase": str(p),
                               "sender": accountSender,
                               "deadline": "1440"}
@@ -924,7 +1118,14 @@ def aliasTransactions(url):
                 "----------------------------------- END OF CREATING ALIAS #1 ----------------------------------------")
             print(
                 "------------------------------------------ CREATING ALIAS #2 ----------------------------------------")
-            aliasname1 = "B" + str(random.randint(1, 10000))
+            aliasname1 = "B" \
+                         "" \
+                         "" \
+                         "" \
+                         "" \
+                         "" \
+                         "" \
+                         "" + str(random.randint(1, 10000))
             createAliasURL1 = {"requestType": "setAlias", "aliasName": aliasname1,
                                "feeATM": "2500000000",
                                "aliasURI": str(accountReceive),
@@ -937,10 +1138,25 @@ def aliasTransactions(url):
                 "----------------------------------- END OF CREATING ALIAS #2 ----------------------------------------")
             print(
                 "------------------------------------------ CREATING ALIAS #3 ----------------------------------------")
-            aliasname2 = "C" + str(random.randint(1, 10000))
+            aliasname2 = "C" \
+                         "" \
+                         "" \
+                         "" \
+                         "" \
+                         "" \
+                         "" + str(random.randint(1, 10000))
             createAliasURL2 = {"requestType": "setAlias", "aliasName": aliasname2,
                                "feeATM": "2500000000",
-                               "aliasURI": "DATA" + str(random.randint(1, 20)),
+                               "aliasURI": "DATA"
+                                           ""
+                                           ""
+                                           ""
+                                           ""
+                                           ""
+                                           ""
+                                           ""
+                                           ""
+                                           "" + str(random.randint(1, 20)),
                                "secretPhrase": str(p),
                                "sender": accountSender,
                                "deadline": "1440"}
@@ -949,7 +1165,7 @@ def aliasTransactions(url):
             print(
                 "----------------------------------- END OF CREATING ALIAS #3 ----------------------------------------")
             print("----------------------------------- DELETING " + alias + " ----------------------------------------")
-
+            time.sleep(20)
             deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6", "7": "5", "8": "0",
                            "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9", "16": "1",
                            "17": "7", "18": "2", "19": "0",
@@ -985,6 +1201,7 @@ def aliasTransactions(url):
 
             print(
                 "-------------------------- TRANSFER " + aliasname + "----------------------------------")
+            time.sleep(20)
             transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5", "7": "5",
                              "8": "2",
                              "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0", "16": "4",
@@ -1030,315 +1247,7 @@ def aliasTransactions(url):
             k += 1
 
 
-def aliasTransactionsTn(url):
-    if url == testNet1.t1:
-        alive = True
-        while alive:
-            k = 1
-            for k in range(1, 201):
-                print(k)
-                print("-------------")
-                i = random.randint(1, 200)
-                p = random.randint(1, 200)
-                t1 = random.choice([testNet1.peer1, testNet1.peer2, testNet1.peer3, testNet1.peer4, testNet1.peer5])
-                getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
-                response = requests.request("GET",
-                                            "http://" + t1 + "/apl",
-                                            params=getAccountId)
-                print(response.json())
-                accountReceive = response.json()["accountRS"]
-                print("-------------")
-                print(str("accountReceive = " + accountReceive))
-                print("-------------")
-
-                getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
-                response = requests.request("GET",
-                                            "http://" + t1 + "/apl",
-                                            params=getAccountId)
-                print(response.json())
-                accountSender = response.json()["accountRS"]
-                sender = response.json()["account"]
-                print("-------------")
-                print(str("accountSender = " + accountSender))
-                print(str("account = " + sender))
-                print(
-                    "------------------------------------------ CREATING ALIAS #1 -------------------------------")
-                aliasname = "A" + str(random.randint(1, 10000))
-                createAliasURL = {"requestType": "setAlias", "aliasName": aliasname,
-                                  "feeATM": "2500000000",
-                                  "aliasURI": "www.destroy" + str(random.randint(1, 30)) + ".com",
-                                  "secretPhrase": str(p),
-                                  "sender": accountSender,
-                                  "deadline": "1440"}
-                response = requests.request("POST", "http://" + t1 + "/apl", params=createAliasURL)
-                print(response.text)
-                alias = response.json()["transaction"]
-                print(alias)
-                print(
-                    "--------PEER: " + t1 + " <<< -------- END OF CREATING ALIAS #1 -------------------")
-                print(
-                    "------------------------------------------ CREATING ALIAS #2 -----------------------------------")
-                aliasname1 = "B" + str(random.randint(1, 10000))
-                createAliasURL1 = {"requestType": "setAlias", "aliasName": aliasname1,
-                                   "feeATM": "2500000000",
-                                   "aliasURI": str(accountReceive),
-                                   "secretPhrase": str(p),
-                                   "sender": accountSender,
-                                   "deadline": "1440"}
-                response = requests.request("POST", "http://" + t1 + "/apl", params=createAliasURL1)
-                print(response.text)
-                print(
-                    "-------- Peer: " + t1 + " <<< --- END OF CREATING ALIAS #2 ------------------------")
-                print(
-                    "------------------------------------------ CREATING ALIAS #3 --------------------------")
-                aliasname2 = "C" + str(random.randint(1, 10000))
-                createAliasURL2 = {"requestType": "setAlias", "aliasName": aliasname2,
-                                   "feeATM": "2500000000",
-                                   "aliasURI": "DATA" + str(random.randint(1, 20)),
-                                   "secretPhrase": str(p),
-                                   "sender": accountSender,
-                                   "deadline": "1440"}
-                response = requests.request("POST", "http://" + t1 + "/apl", params=createAliasURL2)
-                print(response.text)
-                print(
-                    "----------------------------------- END OF CREATING ALIAS #3 ----------------------------------------")
-                print(
-                    "----------------------------------- DELETING " + alias + " ----------------------------------------")
-
-                deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6", "7": "5", "8": "0",
-                               "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9", "16": "1",
-                               "17": "7", "18": "2", "19": "0",
-                               "alias": str(alias),
-                               "feeATM": "2500000000",
-                               "secretPhrase": str(p),
-                               "sender": accountSender,
-                               "deadline": "1440",
-                               "priceATM": "0",
-                               "requestType": "deleteAlias"}
-                response = requests.request("POST", "http://" + t1 + "/apl", params=deleteAlias)
-                print(response.json())
-                print(
-                    "--------------------------------- DELETING " + alias + " IS FINISHED --------------------------------")
-                while "errorDescription" in response.json():
-                    deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6", "7": "5",
-                                   "8": "0",
-                                   "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9",
-                                   "16": "1",
-                                   "17": "7", "18": "2", "19": "0",
-                                   "alias": str(alias),
-                                   "feeATM": "2500000000",
-                                   "secretPhrase": str(p),
-                                   "sender": accountSender,
-                                   "deadline": "1440",
-                                   "priceATM": "0",
-                                   "requestType": "deleteAlias"}
-                    response = requests.request("POST", "http://" + t1 + "/apl", params=deleteAlias)
-                    print(response.json())
-                    print(
-                        "---------------------------------- DELETING " + alias + " IS FINISHED --------------------------")
-
-                print(
-                    "-------------------------- TRANSFER " + aliasname + "----------------------------------")
-                transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5", "7": "5",
-                                 "8": "2",
-                                 "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0", "16": "4",
-                                 "17": "9",
-                                 "18": "7", "19": "0",
-                                 "requestType": "sellAlias",
-                                 "recipient": str(accountReceive),
-                                 "feeATM": "3000000000",
-                                 "add_message": "true",
-                                 "permanent_message": "false",
-                                 "priceATM": "0",
-                                 "aliasName": aliasname,
-                                 "secretPhrase": str(p),
-                                 "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
-                                 "sender": accountSender,
-                                 "deadline": "1440"}
-                response = requests.request("POST", "http://" + t1 + "/apl", params=transferAlias)
-                print(response.json())
-                print(
-                    "--------------------------  TRANSFER " + aliasname + " IS FINISHED  -----------------")
-                while "errorDescription" in response.json():
-                    transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5", "7": "5",
-                                     "8": "2",
-                                     "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0",
-                                     "16": "4",
-                                     "17": "9",
-                                     "18": "7", "19": "0",
-                                     "requestType": "sellAlias",
-                                     "recipient": str(accountReceive),
-                                     "feeATM": "3000000000",
-                                     "add_message": "true",
-                                     "permanent_message": "false",
-                                     "priceATM": "0",
-                                     "aliasName": aliasname,
-                                     "secretPhrase": str(p),
-                                     "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
-                                     "sender": accountSender,
-                                     "deadline": "1440"}
-                    response = requests.request("POST", "http://" + t1 + "/apl", params=transferAlias)
-                    print(response.json())
-                    print(
-                        "--------------------------------  TRANSFER " + aliasname + " IS FINISHED  ---------------------")
-                k += 1
-    else:
-        if url == testNet2.t2:
-            alive = True
-            while alive:
-                k = 1
-                for k in range(1, 201):
-                    print(k)
-                    print("-------------")
-                    i = random.randint(1, 200)
-                    p = random.randint(1, 200)
-                    t2 = random.choice(testNet2.t2)
-                    getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
-                    response = requests.request("GET",
-                                                "http://" + t2 + "/apl",
-                                                params=getAccountId)
-                    print(response.json())
-                    accountReceive = response.json()["accountRS"]
-                    print("-------------")
-                    print(str("accountReceive = " + accountReceive))
-                    print("-------------")
-
-                    getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
-                    response = requests.request("GET",
-                                                "http://" + t2 + "/apl",
-                                                params=getAccountId)
-                    print(response.json())
-                    accountSender = response.json()["accountRS"]
-                    sender = response.json()["account"]
-                    print("-------------")
-                    print(str("accountSender = " + accountSender))
-                    print(str("account = " + sender))
-                    print(
-                        "------------------------------------------ CREATING ALIAS #1 -------------------------------")
-                    aliasname = "A" + str(random.randint(1, 10000))
-                    createAliasURL = {"requestType": "setAlias", "aliasName": aliasname,
-                                      "feeATM": "2500000000",
-                                      "aliasURI": "www.destroy" + str(random.randint(1, 30)) + ".com",
-                                      "secretPhrase": str(p),
-                                      "sender": accountSender,
-                                      "deadline": "1440"}
-                    response = requests.request("POST", "http://" + t2 + "/apl", params=createAliasURL)
-                    print(response.text)
-                    alias = response.json()["transaction"]
-                    print(alias)
-                    print(
-                        "--------PEER: " + t2 + " <<< -------- END OF CREATING ALIAS #1 -------------------")
-                    print(
-                        "------------------------------------------ CREATING ALIAS #2 -----------------------------------")
-                    aliasname1 = "B" + str(random.randint(1, 10000))
-                    createAliasURL1 = {"requestType": "setAlias", "aliasName": aliasname1,
-                                       "feeATM": "2500000000",
-                                       "aliasURI": str(accountReceive),
-                                       "secretPhrase": str(p),
-                                       "sender": accountSender,
-                                       "deadline": "1440"}
-                    response = requests.request("POST", "http://" + t2 + "/apl", params=createAliasURL1)
-                    print(response.text)
-                    print(
-                        "-------- Peer: " + t2 + " <<< --- END OF CREATING ALIAS #2 ------------------------")
-                    print(
-                        "------------------------------------------ CREATING ALIAS #3 --------------------------")
-                    aliasname2 = "C" + str(random.randint(1, 10000))
-                    createAliasURL2 = {"requestType": "setAlias", "aliasName": aliasname2,
-                                       "feeATM": "2500000000",
-                                       "aliasURI": "DATA" + str(random.randint(1, 20)),
-                                       "secretPhrase": str(p),
-                                       "sender": accountSender,
-                                       "deadline": "1440"}
-                    response = requests.request("POST", "http://" + t2 + "/apl", params=createAliasURL2)
-                    print(response.text)
-                    print(
-                        "----------------------------------- END OF CREATING ALIAS #3 ----------------------------------------")
-                    print(
-                        "----------------------------------- DELETING " + alias + " ----------------------------------------")
-
-                    deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6", "7": "5",
-                                   "8": "0",
-                                   "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9",
-                                   "16": "1",
-                                   "17": "7", "18": "2", "19": "0",
-                                   "alias": str(alias),
-                                   "feeATM": "2500000000",
-                                   "secretPhrase": str(p),
-                                   "sender": accountSender,
-                                   "deadline": "1440",
-                                   "priceATM": "0",
-                                   "requestType": "deleteAlias"}
-                    response = requests.request("POST", "http://" + t2 + "/apl", params=deleteAlias)
-                    print(response.json())
-                    print(
-                        "--------------------------------- DELETING " + alias + " IS FINISHED --------------------------------")
-                    while "errorDescription" in response.json():
-                        deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6", "7": "5",
-                                       "8": "0",
-                                       "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9",
-                                       "16": "1",
-                                       "17": "7", "18": "2", "19": "0",
-                                       "alias": str(alias),
-                                       "feeATM": "2500000000",
-                                       "secretPhrase": str(p),
-                                       "sender": accountSender,
-                                       "deadline": "1440",
-                                       "priceATM": "0",
-                                       "requestType": "deleteAlias"}
-                        response = requests.request("POST", "http://" + t2 + "/apl", params=deleteAlias)
-                        print(response.json())
-                        time.sleep(20)
-                        print(
-                            "---------------------------------- DELETING " + alias + " IS FINISHED --------------------------")
-
-                    print(
-                        "-------------------------- TRANSFER " + aliasname + "----------------------------------")
-                    transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5", "7": "5",
-                                     "8": "2",
-                                     "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0",
-                                     "16": "4",
-                                     "17": "9",
-                                     "18": "7", "19": "0",
-                                     "requestType": "sellAlias",
-                                     "recipient": str(accountReceive),
-                                     "feeATM": "3000000000",
-                                     "add_message": "true",
-                                     "permanent_message": "false",
-                                     "priceATM": "0",
-                                     "aliasName": aliasname,
-                                     "secretPhrase": str(p),
-                                     "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
-                                     "sender": accountSender,
-                                     "deadline": "1440"}
-                    response = requests.request("POST", "http://" + t2 + "/apl", params=transferAlias)
-                    print(response.json())
-                    while "errorDescription" in response.json():
-                        transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5", "7": "5",
-                                         "8": "2",
-                                         "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0",
-                                         "16": "4",
-                                         "17": "9",
-                                         "18": "7", "19": "0",
-                                         "requestType": "sellAlias",
-                                         "recipient": str(accountReceive),
-                                         "feeATM": "3000000000",
-                                         "add_message": "true",
-                                         "permanent_message": "false",
-                                         "priceATM": "0",
-                                         "aliasName": aliasname,
-                                         "secretPhrase": str(p),
-                                         "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
-                                         "sender": accountSender,
-                                         "deadline": "1440"}
-                        response = requests.request("POST", "http://" + t2 + "/apl", params=transferAlias)
-                        print(response.json())
-                        time.sleep(20)
-                        print(
-                            "--------------------------------  TRANSFER " + aliasname + " IS FINISHED  ---------------------")
-                    k += 1
-        else:
-            if url == testNet3.t3:
+def aliasTransactionsTn(url1):
                 alive = True
                 while alive:
                     k = 1
@@ -1347,165 +1256,7 @@ def aliasTransactionsTn(url):
                         print("-------------")
                         i = random.randint(1, 200)
                         p = random.randint(1, 200)
-                        t3 = random.choice(
-                            [testNet3.peer1, testNet3.peer2, testNet3.peer3, testNet3.peer4, testNet3.peer5])
-                        getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
-                        response = requests.request("GET",
-                                                    "http://" + t3 + "/apl",
-                                                    params=getAccountId)
-                        print(response.json())
-                        accountReceive = response.json()["accountRS"]
-                        print("-------------")
-                        print(str("accountReceive = " + accountReceive))
-                        print("-------------")
-
-                        getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
-                        response = requests.request("GET",
-                                                    "http://" + t3 + "/apl",
-                                                    params=getAccountId)
-                        print(response.json())
-                        accountSender = response.json()["accountRS"]
-                        sender = response.json()["account"]
-                        print("-------------")
-                        print(str("accountSender = " + accountSender))
-                        print(str("account = " + sender))
-                        print(
-                            "------------------------------------------ CREATING ALIAS #1 -------------------------------")
-                        aliasname = "A" + str(random.randint(1, 10000))
-                        createAliasURL = {"requestType": "setAlias", "aliasName": aliasname,
-                                          "feeATM": "2500000000",
-                                          "aliasURI": "www.destroy" + str(random.randint(1, 30)) + ".com",
-                                          "secretPhrase": str(p),
-                                          "sender": accountSender,
-                                          "deadline": "1440"}
-                        response = requests.request("POST", "http://" + t3 + "/apl", params=createAliasURL)
-                        print(response.text)
-                        alias = response.json()["transaction"]
-                        print(alias)
-                        print(
-                            "--------PEER: " + t3 + " <<< -------- END OF CREATING ALIAS #1 -------------------")
-                        print(
-                            "------------------------------------------ CREATING ALIAS #2 -----------------------------------")
-                        aliasname1 = "B" + str(random.randint(1, 10000))
-                        createAliasURL1 = {"requestType": "setAlias", "aliasName": aliasname1,
-                                           "feeATM": "2500000000",
-                                           "aliasURI": str(accountReceive),
-                                           "secretPhrase": str(p),
-                                           "sender": accountSender,
-                                           "deadline": "1440"}
-                        response = requests.request("POST", "http://" + t3 + "/apl", params=createAliasURL1)
-                        print(response.text)
-                        print(
-                            "-------- Peer: " + t3 + " <<< --- END OF CREATING ALIAS #2 ------------------------")
-                        print(
-                            "------------------------------------------ CREATING ALIAS #3 --------------------------")
-                        aliasname2 = "C" + str(random.randint(1, 10000))
-                        createAliasURL2 = {"requestType": "setAlias", "aliasName": aliasname2,
-                                           "feeATM": "2500000000",
-                                           "aliasURI": "DATA" + str(random.randint(1, 20)),
-                                           "secretPhrase": str(p),
-                                           "sender": accountSender,
-                                           "deadline": "1440"}
-                        response = requests.request("POST", "http://" + t3 + "/apl", params=createAliasURL2)
-                        print(response.text)
-                        print(
-                            "----------------------------------- END OF CREATING ALIAS #3 ----------------------------------------")
-                        print(
-                            "----------------------------------- DELETING " + alias + " ----------------------------------------")
-
-                        deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6", "7": "5",
-                                       "8": "0",
-                                       "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9",
-                                       "16": "1",
-                                       "17": "7", "18": "2", "19": "0",
-                                       "alias": str(alias),
-                                       "feeATM": "2500000000",
-                                       "secretPhrase": str(p),
-                                       "sender": accountSender,
-                                       "deadline": "1440",
-                                       "priceATM": "0",
-                                       "requestType": "deleteAlias"}
-                        response = requests.request("POST", "http://" + t3 + "/apl", params=deleteAlias)
-                        print(response.json())
-                        print(
-                            "--------------------------------- DELETING " + alias + " IS FINISHED --------------------------------")
-                        while "errorDescription" in response.json():
-                            deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6",
-                                           "7": "5",
-                                           "8": "0",
-                                           "9": "7", "10": "3", "11": "8", "12": "2", "13": "7", "14": "1", "15": "9",
-                                           "16": "1",
-                                           "17": "7", "18": "2", "19": "0",
-                                           "alias": str(alias),
-                                           "feeATM": "2500000000",
-                                           "secretPhrase": str(p),
-                                           "sender": accountSender,
-                                           "deadline": "1440",
-                                           "priceATM": "0",
-                                           "requestType": "deleteAlias"}
-                            response = requests.request("POST", "http://" + t3 + "/apl", params=deleteAlias)
-                            print(response.json())
-                            print(
-                                "---------------------------------- DELETING " + alias + " IS FINISHED --------------------------")
-
-                        print(
-                            "-------------------------- TRANSFER " + aliasname + "----------------------------------")
-                        transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5", "7": "5",
-                                         "8": "2",
-                                         "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0",
-                                         "16": "4",
-                                         "17": "9",
-                                         "18": "7", "19": "0",
-                                         "requestType": "sellAlias",
-                                         "recipient": str(accountReceive),
-                                         "feeATM": "3000000000",
-                                         "add_message": "true",
-                                         "permanent_message": "false",
-                                         "priceATM": "0",
-                                         "aliasName": aliasname,
-                                         "secretPhrase": str(p),
-                                         "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
-                                         "sender": accountSender,
-                                         "deadline": "1440"}
-                        response = requests.request("POST", "http://" + t3 + "/apl", params=transferAlias)
-                        print(response.json())
-                        print(
-                            "--------------------------  TRANSFER " + aliasname + " IS FINISHED  -----------------")
-                        while "errorDescription" in response.json():
-                            transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5",
-                                             "7": "5",
-                                             "8": "2",
-                                             "9": "3", "10": "4", "11": "5", "12": "1", "13": "5", "14": "2", "15": "0",
-                                             "16": "4",
-                                             "17": "9",
-                                             "18": "7", "19": "0",
-                                             "requestType": "sellAlias",
-                                             "recipient": str(accountReceive),
-                                             "feeATM": "3000000000",
-                                             "add_message": "true",
-                                             "permanent_message": "false",
-                                             "priceATM": "0",
-                                             "aliasName": aliasname,
-                                             "secretPhrase": str(p),
-                                             "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
-                                             "sender": accountSender,
-                                             "deadline": "1440"}
-                            response = requests.request("POST", "http://" + t3 + "/apl", params=transferAlias)
-                            print(response.json())
-                            print(
-                                "--------------------------------  TRANSFER " + aliasname + " IS FINISHED  ---------------------")
-                        k += 1
-            else:
-                alive = True
-                while alive:
-                    k = 1
-                    for k in range(1, 201):
-                        print(k)
-                        print("-------------")
-                        i = random.randint(1, 200)
-                        p = random.randint(1, 200)
-                        t1 = random.choice(
-                            [testNet1.peer1, testNet1.peer2, testNet1.peer3, testNet1.peer4, testNet1.peer5])
+                        url = random.choice(url1)
                         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
                         response = requests.request("GET",
                                                     "http://" + url + "/apl",
@@ -1540,7 +1291,8 @@ def aliasTransactionsTn(url):
                         alias = response.json()["transaction"]
                         print(alias)
                         print(
-                            "--------PEER: " + t1 + " <<< -------- END OF CREATING ALIAS #1 -------------------")
+                            "--------PEER: " + url + " <<< -------- END OF CREATING ALIAS #1 -------------------")
+                        time.sleep(20)
                         print(
                             "------------------------------------------ CREATING ALIAS #2 -----------------------------------")
                         aliasname1 = "B" + str(random.randint(1, 10000))
@@ -1553,7 +1305,8 @@ def aliasTransactionsTn(url):
                         response = requests.request("POST", "http://" + url + "/apl", params=createAliasURL1)
                         print(response.text)
                         print(
-                            "-------- Peer: " + t1 + " <<< --- END OF CREATING ALIAS #2 ------------------------")
+                            "-------- Peer: " + url + " <<< --- END OF CREATING ALIAS #2 ------------------------")
+                        time.sleep(20)
                         print(
                             "------------------------------------------ CREATING ALIAS #3 --------------------------")
                         aliasname2 = "C" + str(random.randint(1, 10000))
@@ -1567,6 +1320,7 @@ def aliasTransactionsTn(url):
                         print(response.text)
                         print(
                             "----------------------------------- END OF CREATING ALIAS #3 ----------------------------------------")
+                        time.sleep(20)
                         print(
                             "----------------------------------- DELETING " + alias + " ----------------------------------------")
 
@@ -1586,6 +1340,7 @@ def aliasTransactionsTn(url):
                         print(response.json())
                         print(
                             "--------------------------------- DELETING " + alias + " IS FINISHED --------------------------------")
+                        time.sleep(20)
                         while "errorDescription" in response.json():
                             deleteAlias = {"0": "1", "1": "2", "2": "0", "3": "9", "4": "9", "5": "3", "6": "6",
                                            "7": "5",
@@ -1604,6 +1359,7 @@ def aliasTransactionsTn(url):
                             print(response.json())
                             print(
                                 "---------------------------------- DELETING " + alias + " IS FINISHED --------------------------")
+                            time.sleep(20)
 
                         print(
                             "-------------------------- TRANSFER " + aliasname + "----------------------------------")
@@ -1628,6 +1384,7 @@ def aliasTransactionsTn(url):
                         print(response.json())
                         print(
                             "--------------------------  TRANSFER " + aliasname + " IS FINISHED  -----------------")
+                        time.sleep(20)
                         while "errorDescription" in response.json():
                             transferAlias = {"0": "1", "1": "2", "2": "6", "3": "5", "4": "3", "5": "0", "6": "5",
                                              "7": "5",
@@ -1651,6 +1408,7 @@ def aliasTransactionsTn(url):
                             print(response.json())
                             print(
                                 "--------------------------------  TRANSFER " + aliasname + " IS FINISHED  ---------------------")
+                            time.sleep(20)
                         k += 1
 
 
@@ -1658,12 +1416,31 @@ def assetTransactions(url):
     alive = True
     while alive:
         print("-------- ASSET CREATE ------------")
-        assetName = "BEST" + str(random.randint(1, 99))
+        #assetName = random.choice(["#$%^&*()-_", "=+\|'?/.,", ".,][{};:`~"])
+        assetName = "A" \
+                    "" \
+                    "" \
+                    "" \
+                    "" \
+                    "" \
+                    "" + str(random.randint(1, 99))
         # urls1 = random.choice([url])
         availableAssets = 10000
         createAsset = {"requestType": "issueAsset", "decimals": "1", "name": str(assetName),
                        "feeATM": "10000000000000",
-                       "description": "destroy " + str(random.randint(1, 100)), "passphrase": "11",
+                       "description": "destroy"
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      ""
+                                      " #$%^&*()-_=+\|'?/.,][{};:`~" + str(random.randint(1, 100)), "passphrase": "11",
                        "sender": "7821792282123976600", "deadline": "1440",
                        "quantityATU": str(availableAssets)}
 
@@ -1674,6 +1451,7 @@ def assetTransactions(url):
         print("assetID = " + assetID)
         print("-------- ASSET " + assetID + " IS CREATED --------")
         quantityATU = 100
+        time.sleep(40)
 
         k = 0
         for k in range(0, 100):
@@ -1708,7 +1486,7 @@ def assetTransactions(url):
                                  "asset": str(assetID), "passphrase": "11", "deadline": "1440"}
                 response = requests.request("POST", "http://" + url + "/apl", params=transferAsset)
                 print(response.text)
-                time.sleep(20)
+                time.sleep(40)
             print(
                 "------ TRANSFER ASSET TO ---- >>>> " + str(accountRS) + " <<<<------>>>> " + str(account) + " <<< ---")
 
@@ -1727,36 +1505,49 @@ def assetTransactions(url):
                 response = requests.request("POST", "http://" + url + "/apl", params=deleteAsset)
                 print(response.text)
                 print("----------- >>> DELETING ASSET FROM <<< --- >>> " + str(accountRS) + " <<< ---------")
-                time.sleep(20)
+                time.sleep(40)
         k += 1
 
 
 def listProduct(url):
     alive = True
     while alive:
-        listProduct = {"messageFile": "-1", "requestType": "dgsListing",
-                       "tags": "Product" + str(random.randint(1, 30)),
-                       "priceATM": "4000000000", "quantity": "10",
-                       "description": "description%20of%20product%20for%20Sale",
-                       "passphrase": "11",
-                       "sender": "7821792282123976600", "deadline": "1440",
-                       "name": "PICTURE" + str(random.randint(1, 100)),
-                       "feeATM": "1000000000"}
-
+        for i in range(1, 200):
+            listProduct = {"messageFile": "-1", "requestType": "dgsListing",
+                            "tags": "Product"
+                                    " "
+                                    "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                                    "KILL SHARDING"
+                                    " " + str(random.randint(1, 30)),
+                            "priceATM": "4000000000", "quantity": "10",
+                            "description": "description of                                                                             product for Sale"
+                                      "     KILL SHARDING   "
+                                      "                                     #$%^&*()-_=+\|'?/.,][{};:`~!@-                       "
+                                      "        THE END      ",
+                            "secretPhrase": str(i),
+                            #"sender": "7821792282123976600", "deadline": "1440",
+                            "name": "PICTURE "
+                               "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                               " " + str(random.randint(1, 100)),
+                            "feeATM": "3000000000",
+                           "deadline": "1440"}
         response = requests.request("POST", "http://" + random.choice(url) + "/apl", params=listProduct)
         print(response.text)
-        time.sleep(20)
+        time.sleep(0)
     return
 
 
-def pollTransaction(url, finishHeight):
+def pollTransaction(url1, finishHeight):
     alive = True
     while alive:
+        url = random.choice(url1)
         poll = createPollByAccountId(url, finishHeight)
+        time.sleep(30)
         pollBalance = createPollByBalance(url, finishHeight)
+        time.sleep(30)
 
         k = 0
-        for k in range(0, 200):
+        for k in range(20, 200):
             def joinPollByAccountId(pollToJoin, secretPhrase, sender):
                 querystring1 = {"0": "8", "1": "6", "2": "4", "3": "1", "4": "4", "5": "0", "6": "8", "7": "0",
                                 "8": "3",
@@ -1804,7 +1595,6 @@ def pollTransaction(url, finishHeight):
                                                 params=querystring2)
                     print(response.json())
 
-
             print(k)
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(k)}
             response = requests.request("GET", "http://" + url + "/apl", params=getAccountId)
@@ -1812,23 +1602,48 @@ def pollTransaction(url, finishHeight):
             account = response.json()["account"]
             print("----------->>> JOIN TO POLL BY ACCOUNT ID <<<------------")
             joinPollByAccountId(poll, k, account)
-            time.sleep(3)
+            time.sleep(60)
             print("----------->>> JOINING TO POLL BY ACCOUNT ID IS FINISHED <<<-------------")
 
             print("----------->>> JOIN TO POLL BY BALANCE <<<------------")
             joinPollByBalance(pollBalance, k, account)
-            time.sleep(3)
+            time.sleep(60)
             print("----------->>> JOINING TO POLL BY BALANCE IS FINISHED <<<-------------")
             k += 1
-
+        finishHeight = finishHeight + 1
 
 def createPollByAccountId(url, finishHeight):
     print("----- >>> CREATING POLL BY ACCOUNT ID <<< -----")
-    pollByAccountId = {"name": "ApolloInFuture", "votingModel": "0", "finishHeight": str(finishHeight),
+
+    pollByAccountId = {"name": "ApolloInFuture "
+                               "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                               "!!!!!!!!!! KILL IMPORT SHARDING !!!!!!!    "
+                               "THE END"
+                               ""
+                               "",
+                       "votingModel": "0", "finishHeight": str(finishHeight),
                        "minNumberOfOptions": "1",
                        "maxNumberOfOptions": "3", "minRangeValue": "0", "maxRangeValue": "2",
                        "feeATM": "1000000000",
-                       "description": "Description+of+POLLNAME", "answers": ["YES", "NO", "PERHAPS"],
+                       "description": "Description of destroying shard importing"
+                                      "             #$%^&*()-_=+\|'?/     .,][{};:`~!@-       "
+                                      "let's check "
+                                      "THE END"
+                                      "                                                                                             "
+                                      "                                                      ",
+                       "answers": ["YES"
+                                   "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                                   " баг опять "
+                                   "                                                                                  "
+                                   "конец",
+                                   "NO"
+                                   "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                                   "kill sharding                       ",
+                                   "PERHAPS"
+                                   "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                                   "kill import sharding"
+                                   "опять баг"
+                                   "конец                                                                                               "],
                        "create_poll_answers[]": "1",
                        "minBalanceModel": "0", "minBalanceType": "0", "option00": "1", "option01": "2",
                        "option02": "3",
@@ -1847,16 +1662,54 @@ def createPollByAccountId(url, finishHeight):
 
 def createPollByBalance(url, finishHeight):
     print("---- >>> CREATING POLL BY ACCOUNT BALANCE <<< ----")
-    pollByBalance = {"name": "ByBalance" + str(random.randint(1, 100)),
+    pollByBalance = {"name": "ByBalance "
+                             "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                             "kill sharding"
+                             "баг"
+                             "                              "
+                             "THE END"
+                             " " + str(random.randint(1, 100)),
                      "votingModel": "1",
                      "minBalance": "10000",
                      "finishHeight": str(finishHeight),
                      "minNumberOfOptions": "1", "maxNumberOfOptions": "3", "minRangeValue": "0",
                      "maxRangeValue": "2",
-                     "feeATM": "1000000000",
-                     "description": "description: voting by Balance",
-                     "answers": ["YES", "NO", "MAYBE"], "create_poll_answers[]": "YES", "minBalanceModel": "1",
-                     "option00": "YES", "option01": "NO", "option02": "MAYBE", "passphrase": "11",
+                     "feeATM": "4000000000",
+                     "description": "description: "
+                                    "voting by Balance "
+                                    "#$%^&*()-_=+\|'?/.,][{};:`~!@-"
+                                    "KILL SHARD IMPOrTING                                                                        "
+                                    "BUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+                     "answers": ["YES "
+                                 "#$%^&*()-_=+\|'?/.,][{};:`~!@- "
+                                 "KILL IMPORTING SHARD"
+                                 "THE END",
+                                 "NO"
+                                 "#$%^&*()-_=+\|'?/.,][{};:`~!@-                                                                  "
+                                 "KILL IMPORTING SHARD                                                                              "
+                                 "THE END",
+                                 "MAYBE                                                                                                   "
+                                 "KILL IMPORTING SHARD"
+                                 "THE END"
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 ""
+                                 "BUG"],
+                     "create_poll_answers[]": "YES", "minBalanceModel": "1",
+                     "option00": "YES #$%^&*()-_=+\|'?/.,][{};:`~!@-",
+                     "option01": "NO #$%^&*()-_=+\|'?/.,][{};:`~!@-",
+                     "option02": "MAYBE #$%^&*()-_=+\|'?/.,][{};:`~!@-",
+                     "passphrase": "11",
                      "sender": "7821792282123976600", "deadline": "1440", "requestType": "createPoll",
                      "create_poll_answers%5B%5D": "YES"}
     response = requests.request("POST",
@@ -1956,232 +1809,167 @@ def referenced_Phased_Transactions(url):
 
 
 def referencedSendMoneyTransactions(url):
-    if url == testNet1.t1:
-        response = requests.request("POST", "http://" + testNet1.peer2 + "/apl", data=data.payload,
+    peer = random.choice(url)
+    response = requests.request("POST", "http://" + peer + "/apl", data=data.payload,
                                     headers=data.headers,
                                     params=data.sendMoneyFromStandardWalletToVaultWallet(conf.account2, "20000000000",
                                                                                          conf.account1SecretPhrase,
                                                                                          "200000000",
                                                                                          conf.sender1))
-        print(response.json())
+    print(response.json())
+    fullHash = response.json()["fullHash"]
+    print("fullHash = " + fullHash)
+    alive = True
+    while alive:
+        k = 1
+        for k in range(1, 201):
+            print(k)
+            print("-------------")
+            i = random.randint(1, 200)
+            p = random.randint(1, 200)
+            peer = random.choice(url)
+            getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
+            response = requests.request("GET",
+                                        "http://" + peer + "/apl",
+                                        params=getAccountId)
+            print(response.json())
+            accountReceive = response.json()["accountRS"]
+            print("-------------")
+            print(str("accountReceive = " + accountReceive))
+            print("-------------")
+
+            getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
+            response = requests.request("GET",
+                                        "http://" + peer + "/apl",
+                                        params=getAccountId)
+            print(response.json())
+            accountSender = response.json()["accountRS"]
+            sender = response.json()["account"]
+            print("-------------")
+            print(str("accountSender = " + accountSender))
+            print(str("account = " + sender))
+            print("-------------")
+
+            response = requests.request("POST",
+                                        "http://" + peer + "/apl",
+                                        params=data.sendMoneyReferenced(str(accountReceive),
+                                                                        str(random.randint(2000000000,
+                                                                                           200000000000)),
+                                                                        str(p),
+                                                                        "400000000",
+                                                                        sender, fullHash))
+            print(response.json())
+            fullHash = response.json()["fullHash"]
+            print("----------------------------------------------------------------------------------------------")
+            k += 1
+
+
+
+<<<<<<< Updated upstream
+def popOff(url, height):
+=======
+def referenced_Phased_SendMoney(url):
+    url1 = random.choice(url)
+    querystring = {"": "%2Fapl", "requestType": "getBlock"}
+    response = requests.request("GET", "http://" + url1 + "/apl", params=querystring)
+    #print(response.text)
+    currentHeight = response.json()["height"]
+    #finishHeight = 352001
+    finishHeight = currentHeight + 1000
+    #print("-----------------------------------------------------")
+    print("Current Height = " + str(currentHeight))
+    print("Finish Height = " + str(finishHeight))
+    #print("-----------------------------------------------------")
+    try:
+        response = requests.request("POST", "http://" + url1 + "/apl", data=data.payload,
+                                            headers=data.headers,
+                                            params=data.sendMoneyPhased(conf.account2,
+                                                                        "20000000000",
+                                                                        conf.account1SecretPhrase,
+                                                                        "5000000000",
+                                                                        conf.sender1,
+                                                                        finishHeight))
+        #print(response.json())
         fullHash = response.json()["fullHash"]
-        print("fullHash = " + fullHash)
-        alive = True
-        while alive:
-            k = 1
-            for k in range(1, 201):
-                print(k)
-                print("-------------")
-                i = random.randint(1, 200)
-                p = random.randint(1, 200)
-                url = random.choice([testNet1.peer1, testNet1.peer2, testNet1.peer3, testNet1.peer4, testNet1.peer5])
+        #print("fullHash #1 = " + fullHash)
+    except requests.exceptions.ConnectionError:
+        requests.status_code = "Connection refused"
+    except UnicodeError as e:
+        print("Error = " + str(e))
+    except json.decoder.JSONDecodeError as e:
+        print("Error = " + str(e))
+
+    alive = True
+    while alive:
+        k = 1
+        for k in range(1, 201):
+            print(" <<<<< START >>>>>> ")
+            print(k)
+            #print("-------------")
+            i = random.randint(20, 200)
+            p = random.randint(20, 200)
+            node = random.choice(url)
+            print("NODE = " + node)
+            try:
                 getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
                 response = requests.request("GET",
-                                            "http://" + url + "/apl",
+                                            "http://" + node + "/apl",
                                             params=getAccountId)
-                print(response.json())
+                #print(response.json())
                 accountReceive = response.json()["accountRS"]
-                print("-------------")
+                #print("-------------")
                 print(str("accountReceive = " + accountReceive))
-                print("-------------")
+                #print("-------------")
 
                 getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
                 response = requests.request("GET",
-                                            "http://" + url + "/apl",
-                                            params=getAccountId)
-                print(response.json())
+                                        "http://" + node + "/apl",
+                                        params=getAccountId)
+                #print(response.json())
                 accountSender = response.json()["accountRS"]
                 sender = response.json()["account"]
-                print("-------------")
+                #print("-------------")
                 print(str("accountSender = " + accountSender))
-                print(str("account = " + sender))
-                print("-------------")
-
+                #print(str("account = " + sender))
+                #print("-------------")
+                finish_Height = finishHeight - k * 40
+                print("Finish_Height = " + str(finish_Height))
+                #print("FULL HASH of " + str(k) + " = " + fullHash)
                 response = requests.request("POST",
-                                            "http://" + url + "/apl",
-                                            params=data.sendMoneyReferenced(str(accountReceive),
-                                                                            str(random.randint(2000000000,
-                                                                                               200000000000)),
-                                                                            str(p),
-                                                                            "400000000",
-                                                                            sender, fullHash))
-                print(response.json())
-                fullHash = response.json()["fullHash"]
-                print("----------------------------------------------------------------------------------------------")
-                k += 1
-    else:
-        if url == testNet2.t2:
-            response = requests.request("POST", "http://" + testNet2.peer1 + "/apl", data=data.payload,
-                                        headers=data.headers,
-                                        params=data.sendMoneyFromStandardWalletToVaultWallet(conf.account2,
-                                                                                             "20000000000",
-                                                                                             conf.account1SecretPhrase,
-                                                                                             "200000000",
-                                                                                             conf.sender1))
-            print(response.json())
-            fullHash = response.json()["fullHash"]
-            print("fullHash = " + fullHash)
-            alive = True
-            while alive:
-                k = 1
-                for k in range(1, 201):
-                    print(k)
-                    print("-------------")
-                    i = random.randint(1, 200)
-                    p = random.randint(1, 200)
-                    url = random.choice(testNet2.t2)
-                    getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
-                    response = requests.request("GET",
-                                                "http://" + url + "/apl",
-                                                params=getAccountId)
-                    print(response.json())
-                    accountReceive = response.json()["accountRS"]
-                    print("-------------")
-                    print(str("accountReceive = " + accountReceive))
-                    print("-------------")
-
-                    getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
-                    response = requests.request("GET",
-                                                "http://" + url + "/apl",
-                                                params=getAccountId)
-                    print(response.json())
-                    accountSender = response.json()["accountRS"]
-                    sender = response.json()["account"]
-                    print("-------------")
-                    print(str("accountSender = " + accountSender))
-                    print(str("account = " + sender))
-                    print("-------------")
-
-                    response = requests.request("POST",
-                                                "http://" + url + "/apl",
-                                                params=data.sendMoneyReferenced(str(accountReceive),
-                                                                                str(random.randint(2000000000,
-                                                                                                   200000000000)),
+                                            "http://" + node + "/apl",
+                                            params=data.sendMoney_Phased_Referenced(str(accountReceive),
+                                                                                str(random.randint(2000000000, 200000000000)),
                                                                                 str(p),
-                                                                                "400000000",
-                                                                                sender, fullHash))
-                    print(response.json())
-                    fullHash = response.json()["fullHash"]
-                    print(
-                        "----------------------------------------------------------------------------------------------")
-                    k += 1
-                    time.sleep(0)
-        else:
-            if url == testNet3.t3:
-                response = requests.request("POST", "http://" + testNet3.peer3 + "/apl", data=data.payload,
-                                            headers=data.headers,
-                                            params=data.sendMoneyFromStandardWalletToVaultWallet(conf.account2,
-                                                                                                 "20000000000",
-                                                                                                 conf.account1SecretPhrase,
-                                                                                                 "200000000",
-                                                                                                 conf.sender1))
+                                                                                "4000000000",
+                                                                                sender,
+                                                                                finish_Height,
+                                                                                fullHash))
                 print(response.json())
                 fullHash = response.json()["fullHash"]
-                print("fullHash = " + fullHash)
-                alive = True
-                while alive:
-                    k = 1
-                    for k in range(1, 201):
-                        print(k)
-                        print("-------------")
-                        i = random.randint(1, 200)
-                        p = random.randint(1, 200)
-                        url = random.choice(
-                            [testNet3.peer1, testNet3.peer2, testNet3.peer3, testNet3.peer4, testNet3.peer5])
-                        getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
-                        response = requests.request("GET",
-                                                    "http://" + url + "/apl",
-                                                    params=getAccountId)
-                        print(response.json())
-                        accountReceive = response.json()["accountRS"]
-                        print("-------------")
-                        print(str("accountReceive = " + accountReceive))
-                        print("-------------")
-
-                        getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
-                        response = requests.request("GET",
-                                                    "http://" + url + "/apl",
-                                                    params=getAccountId)
-                        print(response.json())
-                        accountSender = response.json()["accountRS"]
-                        sender = response.json()["account"]
-                        print("-------------")
-                        print(str("accountSender = " + accountSender))
-                        print(str("account = " + sender))
-                        print("-------------")
-
-                        response = requests.request("POST",
-                                                    "http://" + url + "/apl",
-                                                    params=data.sendMoneyReferenced(str(accountReceive),
-                                                                                    str(random.randint(2000000000,
-                                                                                                       200000000000)),
-                                                                                    str(p),
-                                                                                    "400000000",
-                                                                                    sender, fullHash))
-                        print(response.json())
-                        fullHash = response.json()["fullHash"]
-                        print(
-                            "----------------------------------------------------------------------------------------------")
-                        k += 1
-            else:
-                response = requests.request("POST", "http://" + url + "/apl", data=data.payload,
-                                            headers=data.headers,
-                                            params=data.sendMoneyFromStandardWalletToVaultWallet(conf.account2,
-                                                                                                 "20000000000",
-                                                                                                 conf.account1SecretPhrase,
-                                                                                                 "200000000",
-                                                                                                 conf.sender1))
-                print(response.json())
-                fullHash = response.json()["fullHash"]
-                print("fullHash = " + fullHash)
-                alive = True
-                while alive:
-                    k = 1
-                    for k in range(1, 201):
-                        print(k)
-                        print("-------------")
-                        i = random.randint(1, 200)
-                        p = random.randint(1, 200)
-                        getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
-                        response = requests.request("GET",
-                                                    "http://" + url + "/apl",
-                                                    params=getAccountId)
-                        print(response.json())
-                        accountReceive = response.json()["accountRS"]
-                        print("-------------")
-                        print(str("accountReceive = " + accountReceive))
-                        print("-------------")
-
-                        getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
-                        response = requests.request("GET",
-                                                    "http://" + url + "/apl",
-                                                    params=getAccountId)
-                        print(response.json())
-                        accountSender = response.json()["accountRS"]
-                        sender = response.json()["account"]
-                        print("-------------")
-                        print(str("accountSender = " + accountSender))
-                        print(str("account = " + sender))
-                        print("-------------")
-
-                        response = requests.request("POST",
-                                                    "http://" + url + "/apl",
-                                                    params=data.sendMoneyReferenced(str(accountReceive),
-                                                                                    str(random.randint(2000000000,
-                                                                                                       200000000000)),
-                                                                                    str(p),
-                                                                                    "400000000",
-                                                                                    sender, fullHash))
-                        print(response.json())
-                        fullHash = response.json()["fullHash"]
-                        print(
-                            "----------------------------------------------------------------------------------------------")
-                        k += 1
+                #print("FULLHASH for NEXT transaction is " + fullHash)
+                print("--------------- END -----------------")
+            except requests.exceptions.ConnectionError:
+                requests.status_code = "Connection refused"
+            except UnicodeError as e:
+                print("Error = " + str(e))
+            except json.decoder.JSONDecodeError as e:
+                print("Error = " + str(e))
+            k += 1
+            time.sleep(0)
 
 
-def popOff(url, height):
+
+def popOffByHeight(url, height):
+>>>>>>> Stashed changes
     print("---------- START POP OFF on --->>> " + url + " <<< ----")
     querystring = {"requestType": "popOff", "adminPassword": "1", "height": str(height)}
+    response = requests.request("POST", "http://" + url + "/apl", params=querystring)
+    print(response.text)
+    print("--------END of POP OFF proccess on peer --->>> " + url + " <<< --------")
+
+def popOffByBlocks(url, blocks):
+    print("---------- START POP OFF on --->>> " + url + " <<< ----")
+    querystring = {"requestType": "popOff", "adminPassword": "1", "numBlocks": str(blocks)}
     response = requests.request("POST", "http://" + url + "/apl", params=querystring)
     print(response.text)
     print("--------END of POP OFF proccess on peer --->>> " + url + " <<< --------")
@@ -2201,7 +1989,7 @@ def sendMoneyToAccounts(url, numberOfAccounts):
         response = requests.request("POST", "http://" + url + "/apl", data=data.payload,
                                     headers=data.headers,
                                     params=data.sendMoneyFromStandardWalletToVaultWallet(str(account),
-                                                                                         "1000000000000000",
+                                                                                         "10000000000000000",
                                                                                          conf.account1SecretPhrase,
                                                                                          "200000000",
                                                                                          conf.sender1))
@@ -2212,11 +2000,11 @@ def sendMoneyToAccounts(url, numberOfAccounts):
 
 def sendMoneyToVaultWallet(url, numberOfAccounts):
     print(" ----- >>>> SENDING MONEY TO VAULT WALLETS <<<< ---- ")
-    for i in range(0, 14):
+    for i in range(0, numberOfAccounts):
         response = requests.request("POST", "http://" + url + "/apl", data=data.payload, headers=data.headers,
                                     params=data.sendMoneyFromStandardWalletToVaultWallet(conf.vaultAccounts[i],
-                                                                                         "1000000000000000",
-                                                                                         conf.account1SecretPhrase,
+                                                                                         "10000000000000",
+                                                                                         "111",
                                                                                          "200000000",
                                                                                          conf.sender1))
         print(response.json())
@@ -2244,7 +2032,7 @@ def shufflingTransactions(participantCount, url):
             # START SHUFFLING
             response = requests.request("POST", "http://" + urls + "/apl",
                                         params={"amount": random.randint(100000000000, 550000000000),
-                                                "registrationPeriod": "1439",
+                                                "registrationPeriod": "1000",
                                                 "participantCount": str(
                                                     participantCount),
                                                 "feeATM": "5000000000",
@@ -2253,6 +2041,7 @@ def shufflingTransactions(participantCount, url):
                                                 "deadline": "2000",
                                                 "requestType": "shufflingCreate",
                                                 "holdingType": "0"})
+            print(response.json())
             shufflingFullHash = response.json()["fullHash"]
             print("shufflingFullHash = >>>> " + str(shufflingFullHash))
             j += 1
@@ -2283,13 +2072,15 @@ def shufflingTransactions(participantCount, url):
                 print(response.text)
                 print(" <<<< --------------------------------------------------------- >>>> ")
                 k += 1
-                time.sleep(0)
-
+                time.sleep(120)
+            time.sleep(5400)
 
 def sendMoneyPrunable(recipient, amountATM, secretPhrase, feeATM, sender):
     return {"requestType": "sendMoney", "recipient": recipient, "amountATM": amountATM,
             "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
-            "sender": sender, "messageIsPrunable": True, "messageIsText": True, "messageToEncrypt": "loading"}
+            "sender": sender, "messageIsPrunable": True
+            #"messageIsText": True, "messageToEncrypt": "loading"
+            }
 
 
 def sendMessage(url):
@@ -2328,18 +2119,53 @@ def sendMessage(url):
 
             sendMessage = {"requestType": "sendMessage",
                            "recipient": str(accountReceive),
-                           "messageToEncrypt": "MESSAGE " + str(id_generator()),
+                           "message": " MESSAGE"
+                                      ""
+                                      ""
+                                      "          "
+                                      "KILL SHARDING   !!!! "
+                                      "         #$%^&*()-_=+\|'?/" ".        "
+                                      "                    ,][{};:` /''~'' !@-                           "
+                                      ""
+                                      ""
+                                      "                                                       " + str(id_generator()),
                            "secretPhrase": str(p),
                            "feeATM": "600000000",
                            "deadline": "1440",
                            "sender": str(sender),
                            "isCustomFee": "false",
-                           "messageFile": "undefined",
+                           #"messageFile": "undefined",
                            "messageIsPrunable": "true",
-                           "messageIsText": "true"}
+                           "messageIsText": "true",
+                           "messageToEncrypt": "true",
+                           "messageToEncryptIsText": "true",
+                           "encryptedMessageData": "1",
+                           "encryptedMessageNonce": "1",
+                           "encryptedMessageIsPrunable": "1",
+                           "compressMessageToEncrypt": "MESSAGE "
+                                                       ""
+                                                       ""
+                                                       ""
+                                                       ""
+                                                       ""
+                                                       "                                                                     #$%^&*()-_=+\|'?/" ".,][{};:` /''~'' !@-",
+                           "messageToEncryptToSelf": "MESSAGE to encrypt #$%^&*()           "
+                                                     ""
+                                                     ""
+                                                     ""
+                                                     ""
+                                                     ""
+                                                     ""
+                                                     "                                                                -_=+\|'?/" ".,][{};:` /''~'' !@-",
+                           "messageToEncryptToSelfIsText": "true",
+                           "encryptToSelfMessageData": "1",
+                           "encryptToSelfMessageNonce": "1",
+                           "compressMessageToEncryptToSelf": "MESSAGE to encrypt                                                                       #$%^&*()-_=+\|'?/" ".,][{};:` /''~'' !@-"
+
+                           }
+                           #"messageIsText": "true"}
             try:
                 response = requests.request("POST", "http://" + urls + "/apl", params=sendMessage)
-
                 print(response.json())
                 print(" <<<<<<< --------- " + urls + " ----- >>>>>>>")
                 print("----------------------------------------------------------------------------------------------")
@@ -2348,7 +2174,7 @@ def sendMessage(url):
             except json.decoder.JSONDecodeError as e:
                 print("Error = " + str(e))
             k += 1
-            time.sleep(1)
+            time.sleep(15)
 
 
 

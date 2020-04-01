@@ -2,11 +2,14 @@ from json import JSONDecodeError
 
 import requests
 import random
+<<<<<<< Updated upstream:scripts/TestNet1/spamerMoneyPrunable.py
 
 import self as self
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 import data
+=======
+>>>>>>> Stashed changes:scripts/TestNet1/sendMoney_Prunable.py
 import time
 import functions
 import testNet3

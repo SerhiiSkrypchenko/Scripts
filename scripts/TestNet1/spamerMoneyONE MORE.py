@@ -13,8 +13,7 @@ while alive:
         print(" <<<< --- START ---- >>>> " + str(p))
 
         i = random.randint(1, 200)
-        t1 = random.choice(testNet2.t2)
-        print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
+        t1 = random.choice(testNet3.t3)
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET", "http://" + t1 + "/apl",
                                     params=getAccountId)
@@ -35,11 +34,7 @@ while alive:
         #print("-------------")
         print(str("accountSender = " + accountSender))
         #print(str("account = " + sender))
-<<<<<<< Updated upstream
-        #print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
-=======
         print(" PEER  = >> " + t1 + " << = ")
->>>>>>> Stashed changes
         #print("-------------")
 
         response = requests.request("POST",
@@ -54,13 +49,8 @@ while alive:
                                                                                          sender))
         print(response.json())
         #print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
-<<<<<<< Updated upstream
-        print()
-        #time.sleep(1)
-=======
         print("----------- END -------------")
-        time.sleep(4)
->>>>>>> Stashed changes
+        time.sleep(5)
         p += 1
 
 

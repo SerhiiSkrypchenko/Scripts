@@ -1,9 +1,6 @@
-import requests
-import random
-import data
-import functions
-import testNet1
+from functions import phasedTransactions
 import testNet2
+import testNet3
 
 
-functions.phasedTransactions(testNet2.localhost)
+phasedTransactions(testNet2.t2)

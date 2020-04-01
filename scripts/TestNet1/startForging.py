@@ -8,10 +8,11 @@ import testNet3
 from functions import startForging
 
 
+#startForging(testNet2.t2All, 2, 200)
+#startForging(testNet2.t2, 2, 19)
+#startForging(testNet1.local, 10, 20)
 #startForging(testNet2.t2All, 1, 200)
-#startForging(testNet3.t3, 1, 200)
-#startForging(testNet2.peer1, 0, 1)
-startForging(testNet2.t2All, 1, 200)
+startForging(testNet2.t2, 1, 150)
 
 
 def startForging1(peer, fromAccount, toAccount):
@@ -32,4 +33,4 @@ def startForging1(peer, fromAccount, toAccount):
         k += 1
 
 
-#startForging1(testNet2.peer1, 3, 40)
+#startForging1(testNet1.peer6, 120, 200)

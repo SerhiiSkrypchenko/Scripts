@@ -8,8 +8,8 @@ import testNet1
 
 alive = True
 while alive:
-    i = 100011
-    base_APL_AMOUNT = 998900000000
+    i = 900122
+    base_APL_AMOUNT = 9998000000000
     fee_APL = 100000000
     alive = True
     while alive:
@@ -32,16 +32,26 @@ while alive:
         print(" PEER  = >> " + t1 + " << = ")
         response = requests.request("POST",
                                     "http://" + t1 + "/apl",
-                                    params=data.sendMoneyPrivate(str(accountReceive),
+                                    params=data.sendMoney(str(accountReceive),
                                                                                          str(base_APL_AMOUNT-fee_APL),
                                                                                          str(i),
                                                                                          str(fee_APL),
                                                                                          sender))
-        print("PRIVATE TRANSACTION")
+
+        """response = requests.request("POST",
+                                    "http://" + t1 + "/apl",
+                                    params=data.sendMoneyPrivate(str(accountReceive),
+                                                          str(base_APL_AMOUNT - fee_APL),
+                                                          str(i),
+                                                          str(fee_APL),
+                                                          sender))"""
+
+        print("SIMPLE TRANSACTION")
+        """print("PRIVATE TRANSACTION")"""
         print(response.json())
         base_APL_AMOUNT = base_APL_AMOUNT-fee_APL
         print("----------- END -------------")
-        time.sleep(3000)
+        time.sleep(240)
         i+=1
 
 

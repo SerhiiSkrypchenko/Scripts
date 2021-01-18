@@ -3,5 +3,5 @@ import testNet2
 import testNet3
 
 
-cancelAllOpenSellOrderETH(testNet3.local)
-#cancelAllOpenSellOrderETH(testNet2.exchange_peers)
+#cancelAllOpenSellOrderETH(testNet3.local)
+cancelAllOpenSellOrderETH(testNet2.exchange_peers)

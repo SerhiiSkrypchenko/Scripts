@@ -909,7 +909,9 @@ def ethBalance(url):
 
         }
 
+
         response = requests.request("GET", "http://" + url + "/rest/dex/balance", headers=headers, params=querystring)
+        print(response.url)
         print(response.text)
 
 

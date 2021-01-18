@@ -8,8 +8,8 @@ import testNet1
 
 alive = True
 while alive:
-    i = 1633
-    base_APL_AMOUNT = 99936700000000
+    i = 20568
+    base_APL_AMOUNT = 10000000000000
     fee_APL = 100000000
     alive = True
     while alive:
@@ -22,6 +22,7 @@ while alive:
         accountReceive = response.json()["accountRS"]
         print(str("accountReceive = " + accountReceive))
 
+
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET",
                                     "http://" + t1 + "/apl",
@@ -29,19 +30,26 @@ while alive:
         accountSender = response.json()["accountRS"]
         sender = response.json()["account"]
         print(str("accountSender = " + accountSender))
+
+        getAccountFirst = {"": "%2Fapl", "requestType": "getAccount", "account": sender}
+        response = requests.request("GET", "http://" + t1 + "/apl", params=getAccountFirst)
+        print(response.json())
+        balanceFirstAccount = response.json()['balanceATM']
+        print(balanceFirstAccount)
+
         print(" PEER  = >> " + t1 + " << = ")
         response = requests.request("POST",
                                     "http://" + t1 + "/apl",
                                     params=data.sendMoneyPrivate(str(accountReceive),
-                                                                                         str(base_APL_AMOUNT-fee_APL),
+                                                                                         str(int(balanceFirstAccount)-fee_APL),
                                                                                          str(i),
                                                                                          str(fee_APL),
                                                                                          sender))
         print("PRIVATE TRANSACTION")
         print(response.json())
-        base_APL_AMOUNT = base_APL_AMOUNT-fee_APL
+        #balanceFirstAccount = balanceFirstAccount-fee_APL
         print("----------- END -------------")
-        time.sleep(60)
+        time.sleep(45)
         i+=1
 
 

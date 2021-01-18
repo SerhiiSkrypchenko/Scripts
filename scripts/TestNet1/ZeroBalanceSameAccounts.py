@@ -12,7 +12,7 @@ print("secret phrase of first acc is : " + first)
 print("secret phrase of second acc is : " + second)
 
 fee_APL = 100000000
-t1 = random.choice(testNet2.t2)
+t1 = random.choice(testNet3.t3)
 
 getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": second}
 response = requests.request("GET", "http://" + t1 + "/apl",
@@ -80,7 +80,7 @@ alive = True
 while alive:
         print(" <<<< --- START ---- sendMoney to another accounts>>>> ")
 
-        t1 = random.choice(testNet2.t2)
+        t1 = random.choice(testNet3.t3)
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": second}
         response = requests.request("GET", "http://" + t1 + "/apl",
                                     params=getAccountId)

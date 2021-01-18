@@ -4,14 +4,16 @@ from tkinter import *
 import testNet1
 import testNet2
 import testNet3
+import testNet4_tap
 import functions
 
 
 
-#functions.stopForgingTn(testNet1.localhost)
+#functions.stopForgingTn(testNet2.t2)
+#functions.stopForgingTn(testNet2.t2)
+#functions.stopForgingTn(testNet2.peer1)
 functions.stopForgingTn(testNet3.t3)
-#functions.stopForgingTn(testNet1.peer1)
-#functions.stopForgingTn(testNet3.t3)
+
 
 
 

@@ -1,12 +1,9 @@
 import testNet2
 import testNet3
 import testNet1
+import testNet4_tap
 from functions import shufflingTransactions
 
-shufflingTransactions(30, testNet2.t2)
-#shufflingTransactions(30, testNet1.t1)
-<<<<<<< Updated upstream
-shufflingTransactions(30, testNet2.t2)
-=======
-#shufflingTransactions(30, testNet2.t2All)
->>>>>>> Stashed changes
+shufflingTransactions(30, testNet2.t2All)
+
+

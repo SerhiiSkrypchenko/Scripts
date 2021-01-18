@@ -5,5 +5,5 @@ import testNet1
 import testNet2
 import testNet3
 
-assetTransactions(testNet2.peer5)
+assetTransactions(testNet2.peer1)
 

@@ -6,6 +6,7 @@ import random
 import conf
 from exchangeFunctions import printVault
 import time
+import testNet1
 from exchangeFunctions import cancelAllOpenBuyOrderETH
 from exchangeFunctions import cancelAllOpenBuyOrderPAX
 from exchangeFunctions import cancelAllOpenSellOrderETH

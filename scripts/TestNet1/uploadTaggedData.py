@@ -6,23 +6,24 @@ import time
 import json
 import testNet1
 import testNet3
+import testNet4_tap
 
 def id_generator(size=5, chars=string.ascii_uppercase):
     return ''.join(random.choice(chars) for _ in range(size))
-
-
+http = "http://"
+URL = testNet2.t2All
 
 
 while True:
     k = 1
     for k in range(1, 201):
         print("NEW TRY of upload and extend -> " + str(k))
-        t1 = random.choice(testNet2.t2)
+        t1 = random.choice(URL)
         print(t1)
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(k)}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=getAccountId)
         print(response.json())
         account = response.json()["accountRS"]
@@ -51,7 +52,7 @@ while True:
             "secretPhrase": str(k),
             "amountOfTime": "86400"}
         try:
-            response = requests.post("http://" + t1 + "/apl?requestType=uploadTaggedData", param,
+            response = requests.post(http + t1 + "/apl?requestType=uploadTaggedData", param,
                                  files=files)
             print(response.json())
             transaction = response.json()['transaction']
@@ -70,7 +71,7 @@ while True:
             try:
                 print("start extend ")
                 print("try is " + str(k))
-                t1 = random.choice(testNet2.t2)
+                t1 = random.choice(URL)
                 print(t1)
                 param = {
                     "feeATM": "4000000000",
@@ -79,12 +80,12 @@ while True:
                     "transaction": transaction,
                     "secretPhrase": str(k)
                     }
-                response = requests.post("http://" + t1 + "/apl?requestType=extendTaggedData", param)
+                response = requests.post(http + t1 + "/apl?requestType=extendTaggedData", param)
                 print(response.json())
                 #transaction = response.json()['transaction']
                 #print("next transaction = " + transaction)
                 print("------extend is finished-----")
-                time.sleep(200)
+                time.sleep(30)
 
             except requests.exceptions.ConnectionError:
                 requests.status_code = "Connection refused"

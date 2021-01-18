@@ -5,14 +5,16 @@ import functions
 import testNet2
 import testNet2
 import testNet3
+import testNet4_tap
 from functions import startForging
 
 
-#startForging(testNet2.t2All, 2, 200)
-#startForging(testNet2.t2, 2, 19)
-#startForging(testNet1.local, 10, 20)
-#startForging(testNet2.t2All, 1, 200)
-startForging(testNet2.t2, 1, 150)
+
+#startForging(testNet2.t2, 115, 200)
+#startForging(testNet2.t2All, 1, 110)
+#startForging(testNet4_tap.t4, 1, 200)
+#startForging(testNet2.t2All, 1, 110)
+startForging(testNet1.t1, 1, 200)
 
 
 def startForging1(peer, fromAccount, toAccount):

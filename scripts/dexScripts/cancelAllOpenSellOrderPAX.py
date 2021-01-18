@@ -2,5 +2,5 @@ from exchangeFunctions import cancelAllOpenSellOrderPAX
 import testNet3
 import testNet2
 
-cancelAllOpenSellOrderPAX(testNet3.local)
-#cancelAllOpenSellOrderPAX(testNet2.exchange_peers)
+#cancelAllOpenSellOrderPAX(testNet3.local)
+cancelAllOpenSellOrderPAX(testNet2.exchange_peers)

@@ -7,5 +7,5 @@ import functions
 from functions import listProduct
 
 
-listProduct(testNet2.t2All)
+listProduct(testNet2.t2)
 

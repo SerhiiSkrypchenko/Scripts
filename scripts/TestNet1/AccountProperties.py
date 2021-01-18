@@ -9,6 +9,7 @@ from exchangeFunctions import vaults
 from exchangeFunctions import printVault
 import json
 
+http = "http://"
 
 def AccountPropertyVault(url):
     for i in range(0, len(vaults)):
@@ -40,7 +41,7 @@ def AccountPropertyVault(url):
         print(randomUrl)
         try:
             print("SET ACCOUNT property")
-            response = requests.request("POST", "http://" + randomUrl + "/apl", params=setAccountProperty)
+            response = requests.request("POST", http + randomUrl + "/apl", params=setAccountProperty)
             print("RESPONSE = " + str(response.json()))
             print("")
         except requests.exceptions.ConnectionError:
@@ -52,7 +53,7 @@ def AccountPropertyVault(url):
         time.sleep(5)
         try:
             print("DELETE ACCOUNT PROPERTY")
-            response = requests.request("POST", "http://" + randomUrl + "/apl", params=deleteAccountProperty)
+            response = requests.request("POST", http + randomUrl + "/apl", params=deleteAccountProperty)
             print("RESPONSE = " + str(response.json()))
             print("----- END -----")
             print("")
@@ -85,7 +86,7 @@ def setAccountPropertyStandard(url):
             print(randomUrl)
             try:
                 print("SET ACCOUNT PROPERTY")
-                response = requests.request("POST", "http://" + randomUrl + "/apl", params=setAccountInfo)
+                response = requests.request("POST", http + randomUrl + "/apl", params=setAccountInfo)
                 print("RESPONSE = " + str(response.json()))
                 print("----- END -----")
                 print("")
@@ -98,7 +99,7 @@ def setAccountPropertyStandard(url):
             time.sleep(240)
             try:
                 print("DELETE ACCOUNT PROPERTY")
-                response = requests.request("POST", "http://" + randomUrl + "/apl", params=deleteAccountProperty)
+                response = requests.request("POST", http + randomUrl + "/apl", params=deleteAccountProperty)
                 print("RESPONSE = " + str(response.json()))
                 print("----- END -----")
                 print("")
@@ -111,6 +112,6 @@ def setAccountPropertyStandard(url):
             i += 1
 
 
-
-AccountPropertyVault(testNet2.exchange_peers)
-setAccountPropertyStandard(testNet2.t2)
+setAccountPropertyStandard(testNet2.t2All)
+AccountPropertyVault(testNet2.t2All)
+setAccountPropertyStandard(testNet2.t2All)

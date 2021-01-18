@@ -5,7 +5,7 @@ import time
 import testNet2
 import testNet3
 import testNet1
-
+URL = testNet3.t3
 alive = True
 while alive:
     p = 1
@@ -13,7 +13,7 @@ while alive:
         print(" <<<< --- START ---- >>>> " + str(p))
 
         i = random.randint(1, 200)
-        t1 = random.choice(testNet3.t3)
+        t1 = random.choice(URL)
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET", "http://" + t1 + "/apl",
                                     params=getAccountId)
@@ -50,7 +50,7 @@ while alive:
         print(response.json())
         #print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
         print("----------- END -------------")
-        time.sleep(5)
+        time.sleep(1)
         p += 1
 
 

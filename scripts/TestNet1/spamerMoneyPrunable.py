@@ -2,19 +2,16 @@ from json import JSONDecodeError
 
 import requests
 import random
-<<<<<<< Updated upstream:scripts/TestNet1/spamerMoneyPrunable.py
-
 import self as self
 from urllib3.exceptions import NewConnectionError, MaxRetryError
-
 import data
-=======
->>>>>>> Stashed changes:scripts/TestNet1/sendMoney_Prunable.py
 import time
 import functions
 import testNet3
 import testNet2
 import json
+
+http = "http://"
 
 alive = True
 while alive:
@@ -24,11 +21,12 @@ while alive:
         print("-------------")
         i = random.randint(1, 200)
         p = random.randint(1, 200)
-        t1 = random.choice(testNet2.t2)
+        t1 = random.choice(testNet2.t2All)
+        print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=getAccountId)
         print(response.json())
         accountReceive = response.json()["accountRS"]
@@ -38,7 +36,7 @@ while alive:
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=getAccountId)
         print(response.json())
         accountSender = response.json()["accountRS"]
@@ -50,7 +48,7 @@ while alive:
         print("-------------")
         try:
             response = requests.request("POST",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=functions.sendMoneyPrunable(str(accountReceive),
                                                                                          str(random.randint(2000000000, 200000000000)),
                                                                                          str(p),

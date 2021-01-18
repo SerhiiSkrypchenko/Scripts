@@ -6,5 +6,5 @@ import testNet1
 import functions
 
 
-functions.pollTransaction(testNet2.t2, 763953)
+functions.pollTransaction(testNet2.t2, 470000)
 

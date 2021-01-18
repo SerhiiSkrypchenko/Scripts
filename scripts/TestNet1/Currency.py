@@ -2,6 +2,7 @@ import testNet2
 import requests
 import random
 import string
+import time
 import conf
 from exchangeFunctions import vaults
 import testNet3
@@ -71,4 +72,5 @@ while True:
         issueStandardCurrency(url,
                             4000000000000,
                             str(i))
+    time.sleep(60)
 

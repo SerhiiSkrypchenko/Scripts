@@ -71,5 +71,5 @@ def setAccounInfoStandard(url):
             print("Error = " + str(e))
         i += 1
 
-setAccounInfoVault(testNet2.exchange_peers)
+setAccounInfoVault(testNet2.p1)
 setAccounInfoStandard(testNet2.t2)

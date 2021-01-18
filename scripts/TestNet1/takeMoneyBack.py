@@ -22,10 +22,10 @@ url27 = "http://51.15.72.23/apl"
 url28 = "http://51.15.100.44/apl"
 url29 = "http://51.15.233.93/apl"
 # urls2 = random.choice([url21, url22, url23, url24, url25, url26, url27, url28, url29])
-urls2 = random.choice([url21, localhost])
+urls2 = random.choice([url31])
 
 k = 1
-for k in range(1, 201):
+for k in range(100000, 100030):
     print(k)
     print("-------------")
 

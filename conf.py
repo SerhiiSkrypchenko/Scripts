@@ -69,9 +69,175 @@ sender12 = "9224832718127301015"
 PassPhrase12 = "11"
 wallet12 = "0xec07fb10ceef72f72adf22abdbf7dbd562dc539d"
 
+# VAULT WALLET ACCOUNT 13
+account13 = "APL-NH8X-65FA-Q6MY-5RBFP"
+sender13 = "4230348039229422813"
+PassPhrase13 = "11"
+wallet13 = "0x98d953898f4390fea5b6522e00e74a8dec5eb698"
+
+# VAULT WALLET ACCOUNT 14
+account14 = "APL-GUEH-L25B-NA2L-9PUJQ"
+sender14 = "8882036967178987919"
+PassPhrase14 = "11"
+wallet14 = "0x347e377a61d13fb675ce6a102f09aab8361ca71a"
+
+# VAULT WALLET ACCOUNT 15
+account15 = "APL-D9TM-ZMWM-5CX3-HML9W"
+sender15 = "18311165480912920371"
+PassPhrase15 = "11"
+wallet15 = "0x13ff43fd4fe44d0215c1b56dec12b928d27b22b2"
+
+# VAULT WALLET ACCOUNT 16
+account16 = "APL-DLS6-R9QE-RBTY-FB3C5"
+sender16 = "15107370828532402948"
+PassPhrase16 = "11"
+wallet16 = "0xf3859b1f7d025f8e197ea26537a140adfd047617"
+
+# VAULT WALLET ACCOUNT 17
+account17 = "APL-SLA6-3WS8-BLYW-FV9WB"
+sender17 = "15344039973106764036"
+PassPhrase17 = "11"
+wallet17 = "0xb01cb03b96ac8144c52eb0fd7528cc89d6bca59f"
+
+# VAULT WALLET ACCOUNT 18
+account18 = "APL-RXMQ-4NVU-WMNU-DJU2A"
+sender18 = "12971299403815712374"
+PassPhrase18 = "11"
+wallet18 = "0xe6572ba43b0d737c5938080530680b21e8381ff1"
+
+# VAULT WALLET ACCOUNT 19
+account19 = "APL-B27F-CEGC-4AJK-662BP"
+sender19 = "5378428609996554413"
+PassPhrase19 = "11"
+wallet19 = "0xe2f718fba56c6205a2d03a5d793fc64262e033e8"
+
+# VAULT WALLET ACCOUNT 20
+account20 = "APL-LV26-HM4W-HPWU-7ZN56"
+sender20 = "5912838719027112964"
+PassPhrase20 = "11"
+wallet20 = "0x82f2b64ce1348a21956563fae41439fa5d4dbd29"
+
+# VAULT WALLET ACCOUNT 21
+account21 = "APL-KW54-4DDL-5AMD-BWAGS"
+sender21 = "11257059610834038882"
+PassPhrase21 = "11"
+wallet21 = "0x6a77ffd49f28caae9a922ba01b0957a4492b44fc"
+
+# VAULT WALLET ACCOUNT 22
+account22 = "APL-TNCU-RQQW-QBTR-6FQNX"
+sender22 = "5679828294616011098"
+PassPhrase22 = "11"
+wallet22 = "0xa812308371ca834f55a1bc651684f760850e3dc8"
+
+# VAULT WALLET ACCOUNT 23
+account23 = "APL-636B-JUY2-4MMQ-CPLYB"
+sender23 = "11887908203566072969"
+PassPhrase23 = "11"
+wallet23 = "0x14ac113e3138075c1c60b2a873ff47c2d964e804"
+
+# VAULT WALLET ACCOUNT 24
+account24 = "APL-X5TB-PJTX-KAHE-D7EWR"
+sender24 = "13542752529130884905"
+PassPhrase24 = "11"
+wallet24 = "0x17c334d098bc2a40492dd67ca0d3bbd87c9b433a"
+
+# VAULT WALLET ACCOUNT 25
+account25 = "APL-UZFQ-G4TX-79X2-D37BN"
+sender25 = "13413023095642226102"
+PassPhrase25 = "11"
+wallet25 = "0x77a412892ea4e9a7319d9254a2fd8c5c4d8a805a"
+
+# VAULT WALLET ACCOUNT 26  SELL
+account26 = "APL-CJJG-C3X6-TMXU-CXV7Z"
+sender26 = "12652719462722912782"
+PassPhrase26 = "11"
+wallet26 = "0xc85d9b93ddacf8a8070cb9c00dda2d690ef0be84"
+
+# VAULT WALLET ACCOUNT 27  SELL
+account27 = "APL-TM8H-2Z8X-ELLZ-HYTJR"
+sender27 = "18141411927217982671"
+PassPhrase27 = "11"
+wallet27 = "0x1f0fc41e75d8a86674d5fc7ebb3cb3615447cf56"
+
+# VAULT WALLET ACCOUNT 28
+account28 = "APL-NRVA-DLAD-6N2W-GR98X"
+sender28 = "17192763554424053608"
+PassPhrase28 = "11"
+wallet28 = "0x07716c20409da438a74c082e55b6e88e40e9c471"
+
+# VAULT WALLET ACCOUNT 29   SELL
+account29 = "APL-DAWS-MBPZ-XP27-64EYY"
+sender29 = "5726752000926131096"
+PassPhrase29 = "11"
+wallet29 = "0x75d7cdc04f55c7c2c76ad869d1e922aa7ab11f87"
 
 
-vaultAccounts = ([account2, account3, account4, account5, account6, account7, account8, account9, account10, account11, account12])
 
+# NEW ACCOUNTS for testing:
+# VAULT WALLET ACCOUNT 30   SELL
+account30 = "APL-EXNJ-4NGE-8CQJ-89J6H"
+sender30 = "7463035319764809360"
+PassPhrase30 = "11"
+wallet30 = "0x3ce40f58c4540c812f35a5ada440aa47351bf516"
+
+# VAULT WALLET ACCOUNT 31   SELL
+account31 = "APL-CYCC-AFHU-UKQW-GSV4D"
+sender31 = "16540446287211100490"
+PassPhrase31 = "11"
+wallet31 = "0x1aee62fae2ede94b1bb4d9acc85f9cd812a1e10f"
+
+# VAULT WALLET ACCOUNT 32   SELL
+account32 = "APL-UACA-9EJC-7K9B-FS7XD"
+sender32 = "15417149988486848840"
+PassPhrase32 = "11"
+wallet32 = "0xf80c9d0ff2d2752efa8f824285396b9792db21e9"
+
+# VAULT WALLET ACCOUNT 33   BUY
+account33 = "APL-9PTX-X2JJ-9A27-2JKV6"
+sender33 = "175131209058473789"
+PassPhrase33 = "11"
+wallet33 = "0xcdeee36b307fe38ef5069dbfe9885ba1d8e21605"
+
+# VAULT WALLET ACCOUNT 34   BUY
+account34 = "APL-9TVQ-MRDG-VF2Z-CGQP3"
+sender34 = "11589677868394997622"
+PassPhrase34 = "11"
+wallet34 = "0xe5147b50dfc74d201451cfcd16995860e47bc926"
+
+
+# for new testing !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# VAULT WALLET ACCOUNT 35
+account35 = "APL-ET94-Y29F-VAGR-B3RJR"
+sender35 = "11223781642518029538"
+PassPhrase35 = "11"
+wallet35 = "0x4b47a6dca35ce6ae24d7ff84a948e495086162d9"
+
+# VAULT WALLET ACCOUNT 36
+account36 = "APL-W32V-9C6P-BHEE-3G3NL"
+sender36 = "1824008678032671771"
+PassPhrase36 = "11"
+wallet36 = "0xac19c361834c2487a5137a23fc9e5d8cc7b2004a"
+
+# VAULT WALLET ACCOUNT 37
+account37 = "APL-7ANZ-Q8VR-GQZU-EGJPU"
+sender37 = "14796029782222086815"
+PassPhrase37 = "11"
+wallet37 = "0x907563eb018a4efcaa79b3a7eb66c38111a212ae"
+
+# VAULT WALLET ACCOUNT 38
+account38 = "APL-PL8E-GZZV-BPDZ-3NSRK"
+sender38 = "1792173682340841676"
+PassPhrase38 = "11"
+wallet38 = "0xfade03a5f38c8b6e1e5dc2f96f15e21a4e4ffed7"
+
+
+
+
+
+
+
+#vaultAccounts = ([account30, account31, account32, account33, account34, account35, account36, account37, account38, account25, account26, account27, account28, account29])
+
+vaultAccounts = ([account2, account3, account4, account5, account6, account7, account8, account9, account10, account11, account12, account30, account31, account32, account33, account34, account35, account36, account37, account38, account25, account26, account27, account28, account29])
 #vaultAccounts = ([account10])
 

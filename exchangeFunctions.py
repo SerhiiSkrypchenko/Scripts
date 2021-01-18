@@ -20,6 +20,14 @@ class VaultWallet:
         self.passPhrase = passphrase
         self.wallet = wallet
 
+vault20 = VaultWallet(conf.account20, conf.sender20, conf.PassPhrase20, conf.wallet20)
+vault19 = VaultWallet(conf.account19, conf.sender19, conf.PassPhrase19, conf.wallet19)
+vault18 = VaultWallet(conf.account18, conf.sender18, conf.PassPhrase18, conf.wallet18)
+vault17 = VaultWallet(conf.account17, conf.sender17, conf.PassPhrase17, conf.wallet17)
+vault16 = VaultWallet(conf.account16, conf.sender16, conf.PassPhrase16, conf.wallet16)
+vault15 = VaultWallet(conf.account15, conf.sender15, conf.PassPhrase15, conf.wallet15)
+vault14 = VaultWallet(conf.account14, conf.sender14, conf.PassPhrase14, conf.wallet14)
+vault13 = VaultWallet(conf.account13, conf.sender13, conf.PassPhrase13, conf.wallet13)
 vault12 = VaultWallet(conf.account12, conf.sender12, conf.PassPhrase12, conf.wallet12)
 vault11 = VaultWallet(conf.account11, conf.sender11, conf.PassPhrase11, conf.wallet11)
 vault10 = VaultWallet(conf.account10, conf.sender10, conf.PassPhrase10, conf.wallet10)
@@ -32,7 +40,39 @@ vault4 = VaultWallet(conf.account4, conf.sender4, conf.PassPhrase4, conf.wallet4
 vault3 = VaultWallet(conf.account3, conf.sender3, conf.PassPhrase3, conf.wallet3)
 vault2 = VaultWallet(conf.account2, conf.sender2, conf.PassPhrase2, conf.wallet2)
 
-vaults = ([vault2, vault3, vault4, vault5, vault6, vault7, vault8, vault9, vault10, vault11, vault12])
+vault21 = VaultWallet(conf.account21, conf.sender21, conf.PassPhrase21, conf.wallet21)
+vault22 = VaultWallet(conf.account22, conf.sender22, conf.PassPhrase22, conf.wallet22)
+vault23 = VaultWallet(conf.account23, conf.sender23, conf.PassPhrase23, conf.wallet23)
+vault24 = VaultWallet(conf.account24, conf.sender24, conf.PassPhrase24, conf.wallet24)
+
+vault25 = VaultWallet(conf.account25, conf.sender25, conf.PassPhrase25, conf.wallet25)
+vault26 = VaultWallet(conf.account26, conf.sender26, conf.PassPhrase26, conf.wallet26)
+vault27 = VaultWallet(conf.account27, conf.sender27, conf.PassPhrase27, conf.wallet27)
+vault28 = VaultWallet(conf.account28, conf.sender28, conf.PassPhrase28, conf.wallet28)
+vault29 = VaultWallet(conf.account29, conf.sender29, conf.PassPhrase29, conf.wallet29)
+
+
+#vaults = ([vault26, vault27, vault25, vault28, vault29])
+
+vault30 = VaultWallet(conf.account30, conf.sender30, conf.PassPhrase30, conf.wallet30)
+vault31 = VaultWallet(conf.account31, conf.sender31, conf.PassPhrase31, conf.wallet31)
+vault32 = VaultWallet(conf.account32, conf.sender32, conf.PassPhrase32, conf.wallet32)
+vault33 = VaultWallet(conf.account33, conf.sender33, conf.PassPhrase33, conf.wallet33)
+vault34 = VaultWallet(conf.account34, conf.sender34, conf.PassPhrase34, conf.wallet34)
+vault35 = VaultWallet(conf.account35, conf.sender35, conf.PassPhrase35, conf.wallet35)
+vault36 = VaultWallet(conf.account36, conf.sender36, conf.PassPhrase36, conf.wallet36)
+vault37 = VaultWallet(conf.account37, conf.sender37, conf.PassPhrase37, conf.wallet37)
+vault38 = VaultWallet(conf.account38, conf.sender38, conf.PassPhrase38, conf.wallet38)
+#vaults = ([vault35, vault36, vault37, vault38])
+
+
+vaults = ([vault2, vault3, vault4, vault5, vault6, vault7, vault8, vault9, vault10, vault11, vault12, vault13, vault14, vault15,
+           vault16, vault17, vault18, vault19, vault20, vault21, vault22, vault23, vault24,
+           vault34, vault33, vault32, vault31, vault30, vault35, vault36, vault37, vault38, vault26, vault27, vault25, vault28, vault29])
+
+#vaults = ([vault21, vault22, vault23, vault24])
+#vaults = ([vault17, vault18, vault19, vault20])
+#vaults = ([vault2, vault3, vault4, vault5, vault6, vault7, vault8, vault9, vault10, vault11, vault12, vault13, vault14, vault15, vault16])
 
 
 def printVault(vaultWallet):
@@ -535,11 +575,11 @@ def dexOrders(url, sleepTime, type):
 
 def dexOrders2(url, sleepTime, type):
     if type == 1:
-        pairRate1 = str(random.randint(200, 399))
+        pairRate1 = random.choice(["5000", "6000", "7000", "8000"])
         print(pairRate1)
-        pairRate2 = str(random.randint(400, 699))
+        pairRate2 = random.choice(["4500", "5500", "1500", "2500"])
         print(pairRate2)
-        pairRate3 = str(random.randint(700, 999))
+        pairRate3 = random.choice(["3500", "3000", "1000", "9000"])
         print(pairRate3)
         pairRate = (pairRate1, pairRate2, pairRate3)
     else:
@@ -550,13 +590,14 @@ def dexOrders2(url, sleepTime, type):
         pairRate3 = "555555"
         print(pairRate3)
         pairRate = (pairRate1, pairRate2, pairRate3)
-    offerAmount = ("10000000000", "20000000000", "15000000000", "25000000000")
-    i = 1
-    for i in range(1, 20):
+    offerAmount = ("1000000000000", "2000000000000", "3000000000000", "4000000000000", "5000000000000")
+    while True:
         sellOrders2(url, vaults, pairRate, offerAmount)
-        time.sleep(0)
+        #time.sleep(1200)
         buyOrders2(url, vaults, pairRate, offerAmount)
         #cancelRandomOrder(url)
+
+
 
 
 
@@ -868,7 +909,9 @@ def ethBalance(url):
 
         }
 
+
         response = requests.request("GET", "http://" + url + "/rest/dex/balance", headers=headers, params=querystring)
+        print(response.url)
         print(response.text)
 
 

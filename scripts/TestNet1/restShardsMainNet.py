@@ -9,7 +9,7 @@ import mainNet
 
 #functions.restShards(testNet1.localhost)
 #functions.restShardsTn(testNet1.t1)
-functions.restShards(testNet1.localhost)
+#functions.restShards(testNet1.localhost)
 functions.restShards(mainNet.peer1)
 functions.restShards(mainNet.peer2)
 functions.restShards(mainNet.peer3)

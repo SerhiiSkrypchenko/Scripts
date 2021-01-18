@@ -1,5 +1,7 @@
 from exchangeFunctions import cancelAllOpenSellOrderETH
 import testNet2
+import testNet3
 
-while True:
-    cancelAllOpenSellOrderETH(testNet2.exchange_peers)
+
+#cancelAllOpenSellOrderETH(testNet3.local)
+cancelAllOpenSellOrderETH(testNet2.exchange_peers)

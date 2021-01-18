@@ -1,11 +1,17 @@
+from json import JSONDecodeError
+
 import requests
 import random
+import self as self
+from urllib3.exceptions import NewConnectionError, MaxRetryError
 import data
 import time
 import functions
 import testNet3
 import testNet2
 import json
+
+http = "http://"
 
 alive = True
 while alive:
@@ -16,10 +22,11 @@ while alive:
         i = random.randint(1, 200)
         p = random.randint(1, 200)
         t1 = random.choice(testNet2.t2All)
+        print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=getAccountId)
         print(response.json())
         accountReceive = response.json()["accountRS"]
@@ -29,7 +36,7 @@ while alive:
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=getAccountId)
         print(response.json())
         accountSender = response.json()["accountRS"]
@@ -41,7 +48,7 @@ while alive:
         print("-------------")
         try:
             response = requests.request("POST",
-                                    "http://" + t1 + "/apl",
+                                    http + t1 + "/apl",
                                     params=functions.sendMoneyPrunable(str(accountReceive),
                                                                                          str(random.randint(2000000000, 200000000000)),
                                                                                          str(p),
@@ -55,6 +62,18 @@ while alive:
         except UnicodeError as e:
             print("Error = " + str(e))
         except json.decoder.JSONDecodeError as e:
+            print("Error = " + str(e))
+        except JSONDecodeError as e:
+            print("Error = " + str(e))
+        except TimeoutError as e:
+            print("Error = " + str(e))
+        except self.raw_decode as e:
+            print("Error = " + str(e))
+        except NewConnectionError as e:
+            print("Error = " + str(e))
+        except ConnectionError as e:
+            print("Error = " + str(e))
+        except MaxRetryError as e:
             print("Error = " + str(e))
         k += 1
         time.sleep(0)

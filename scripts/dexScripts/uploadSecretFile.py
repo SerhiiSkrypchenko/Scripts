@@ -14,5 +14,5 @@ import conf
 #exchangeFunctions.uploadSecretFile(testNet2.peer1)
 #exchangeFunctions.uploadSecretFile(testNet2.peer1)
 #exchangeFunctions.uploadSecretFile(testNet2.peer2)
-exchangeFunctions.uploadSecretFile(testNet3.peer2)
+exchangeFunctions.uploadSecretFile(testNet2.peer1)
 #exchangeFunctions.uploadSecretFile(testNet2.peer4)

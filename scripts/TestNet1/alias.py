@@ -27,7 +27,7 @@ def aliasTransactionsTn(testNet):
 
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
             response = requests.request("GET",
-                                        "http://" + url + "/apl",
+                                        url + "/apl",
                                         params=getAccountId)
             print(response.json())
             accountReceive = response.json()["accountRS"]
@@ -37,7 +37,7 @@ def aliasTransactionsTn(testNet):
 
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
             response = requests.request("GET",
-                                        "http://" + url + "/apl",
+                                        url + "/apl",
                                         params=getAccountId)
             print(response.json())
             accountSender = response.json()["accountRS"]
@@ -58,7 +58,7 @@ def aliasTransactionsTn(testNet):
                               "secretPhrase": str(p),
                               "sender": accountSender,
                               "deadline": "1440"}
-            response = requests.request("POST", "http://" + url + "/apl", params=createAliasURL)
+            response = requests.request("POST", url + "/apl", params=createAliasURL)
             print(response.text)
             aliasURI = response.json()["transaction"]
             print("aliasID = " + str(aliasURI))
@@ -77,7 +77,7 @@ def aliasTransactionsTn(testNet):
                                "secretPhrase": str(p),
                                "sender": accountSender,
                                "deadline": "1440"}
-            response = requests.request("POST", "http://" + url + "/apl", params=createAliasAccount)
+            response = requests.request("POST", url + "/apl", params=createAliasAccount)
             print(response.text)
             aliasID = response.json()["transaction"]
             print("aliasID = " + str(aliasID))
@@ -96,7 +96,7 @@ def aliasTransactionsTn(testNet):
                                "secretPhrase": str(p),
                                "sender": accountSender,
                                "deadline": "1440"}
-            response = requests.request("POST", "http://" + url + "/apl", params=createAliasOther)
+            response = requests.request("POST", url + "/apl", params=createAliasOther)
             print(response.text)
             aliasID = response.json()["transaction"]
             print("aliasID = " + str(aliasID))
@@ -119,7 +119,7 @@ def aliasTransactionsTn(testNet):
                            "deadline": "1440",
                            "priceATM": "0",
                            "requestType": "deleteAlias"}
-            response = requests.request("POST", "http://" + url + "/apl", params=deleteAlias)
+            response = requests.request("POST", url + "/apl", params=deleteAlias)
             print(response.json())
             print(
                 "--------------------------------- DELETING " + aliasnameURI + " IS FINISHED --------------------------------")
@@ -138,7 +138,7 @@ def aliasTransactionsTn(testNet):
                                "deadline": "1440",
                                "priceATM": "0",
                                "requestType": "deleteAlias"}
-                response = requests.request("POST", "http://" + url + "/apl", params=deleteAlias)
+                response = requests.request("POST", url + "/apl", params=deleteAlias)
                 print(response.json())
                 print(
                     "---------------------------------- DELETING " + aliasnameURI + " IS FINISHED --------------------------")
@@ -163,7 +163,7 @@ def aliasTransactionsTn(testNet):
                              "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
                              "sender": accountSender,
                              "deadline": "1440"}
-            response = requests.request("POST", "http://" + url + "/apl", params=transferAlias)
+            response = requests.request("POST", url + "/apl", params=transferAlias)
             print(response.json())
             print(
                 "--------------------------  TRANSFER " + aliasname + " IS FINISHED  -----------------")
@@ -187,7 +187,7 @@ def aliasTransactionsTn(testNet):
                                  "messageToEncrypt": "MESSAGE+TRANSFER+ALIAS",
                                  "sender": accountSender,
                                  "deadline": "1440"}
-                response = requests.request("POST", "http://" + url + "/apl", params=transferAlias)
+                response = requests.request("POST", url + "/apl", params=transferAlias)
                 print(response.json())
                 print(
                     "--------------------------------  TRANSFER " + aliasname + " IS FINISHED  ---------------------")
@@ -195,6 +195,6 @@ def aliasTransactionsTn(testNet):
             k += 1
 
 
-aliasTransactionsTn(testNet3.t3)
+aliasTransactionsTn(testNet2.t2)
 
 

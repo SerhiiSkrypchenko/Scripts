@@ -41,7 +41,7 @@ def AccountPropertyVault(url):
         print(randomUrl)
         try:
             print("SET ACCOUNT property")
-            response = requests.request("POST", http + randomUrl + "/apl", params=setAccountProperty)
+            response = requests.request("POST", randomUrl + "/apl", params=setAccountProperty)
             print("RESPONSE = " + str(response.json()))
             print("")
         except requests.exceptions.ConnectionError:
@@ -50,10 +50,10 @@ def AccountPropertyVault(url):
             print("Error = " + str(e))
         except json.decoder.JSONDecodeError as e:
             print("Error = " + str(e))
-        time.sleep(5)
+        time.sleep(20)
         try:
             print("DELETE ACCOUNT PROPERTY")
-            response = requests.request("POST", http + randomUrl + "/apl", params=deleteAccountProperty)
+            response = requests.request("POST", randomUrl + "/apl", params=deleteAccountProperty)
             print("RESPONSE = " + str(response.json()))
             print("----- END -----")
             print("")
@@ -67,7 +67,7 @@ def AccountPropertyVault(url):
 
 def setAccountPropertyStandard(url):
     while True:
-        for i in range(1, 200):
+        for i in range(1, 100):
             print(" STEP = " + str(i))
             value = "standard wallets -> ooopppsss ->   " \
                 "';:.,<>/?][{}\|=+-_)($#@!%^&*()  ->  " \
@@ -86,7 +86,7 @@ def setAccountPropertyStandard(url):
             print(randomUrl)
             try:
                 print("SET ACCOUNT PROPERTY")
-                response = requests.request("POST", http + randomUrl + "/apl", params=setAccountInfo)
+                response = requests.request("POST", randomUrl + "/apl", params=setAccountInfo)
                 print("RESPONSE = " + str(response.json()))
                 print("----- END -----")
                 print("")
@@ -96,10 +96,10 @@ def setAccountPropertyStandard(url):
                 print("Error = " + str(e))
             except json.decoder.JSONDecodeError as e:
                 print("Error = " + str(e))
-            time.sleep(240)
+            time.sleep(20)
             try:
                 print("DELETE ACCOUNT PROPERTY")
-                response = requests.request("POST", http + randomUrl + "/apl", params=deleteAccountProperty)
+                response = requests.request("POST", randomUrl + "/apl", params=deleteAccountProperty)
                 print("RESPONSE = " + str(response.json()))
                 print("----- END -----")
                 print("")
@@ -112,6 +112,6 @@ def setAccountPropertyStandard(url):
             i += 1
 
 
-setAccountPropertyStandard(testNet2.t2All)
-AccountPropertyVault(testNet2.t2All)
-setAccountPropertyStandard(testNet2.t2All)
+setAccountPropertyStandard(testNet3.t3)
+#AccountPropertyVault(testNet3.p1)
+setAccountPropertyStandard(testNet3.t3)

@@ -10,7 +10,11 @@ from testNet2 import t2
 import testNet2
 import testNet3
 import testNet4_tap
+import testNet1
+import testNetStage
 
 
-sendMessage(testNet2.t2)
+#sendMessage(testNet2.t2All)
+sendMessage(testNet2.t2All)
+
 

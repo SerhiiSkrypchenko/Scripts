@@ -889,8 +889,8 @@ def vaultLogin(url):
         headers = {
             'Content-Type': "application/x-www-form-urlencoded"
         }
-        response = requests.request("POST", "http://" + url + "/rest/keyStore/accountInfo", data=payload,
-                                    headers=headers)
+        response = requests.request("POST", url + "/rest/keyStore/accountInfo", data=payload,
+                                    headers=headers, verify=False)
         print(response.text)
         print("")
 
@@ -910,7 +910,7 @@ def ethBalance(url):
         }
 
 
-        response = requests.request("GET", "http://" + url + "/rest/dex/balance", headers=headers, params=querystring)
+        response = requests.request("GET", url + "/rest/dex/balance", headers=headers, params=querystring, verify=False)
         print(response.url)
         print(response.text)
 
@@ -935,7 +935,7 @@ def uploadSecretFile(url):
         }
         payload = {"keyStore": str(file_content), "passPhrase": str(passPhrase)}
 
-        response = requests.request("POST", "http://" + url + "/rest/keyStore/upload", data=payload, headers=headers)
+        response = requests.request("POST", url + "/rest/keyStore/upload", data=payload, headers=headers)
         print("")
         print(response.content)
         i += 1

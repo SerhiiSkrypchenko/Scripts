@@ -4,6 +4,7 @@ import testNet3
 import testNet2
 import testNet1
 import testNet4_tap
+import testNetStage
 
 
 
@@ -23,6 +24,8 @@ elif testNet == "t2":
     functions.restShardsTn(testNet2.t2)
 elif testNet == "t4":
     functions.restShardsTn(testNet4_tap.t4)
+elif testNet == "stage":
+    functions.restShardsTn(testNetStage.t15All)
 else:
     print("entered testNet is invalid")
 
@@ -30,7 +33,6 @@ else:
 #functions.restShards(localhost)
 #functions.restShardsTn(t1)
 #functions.restShardsTn(testNet2.t2)
-
 #functions.restShardsTn(testNet3.t3)
 
 

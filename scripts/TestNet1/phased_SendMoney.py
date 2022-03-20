@@ -4,6 +4,8 @@ import data
 import functions
 import testNet1
 import testNet2
+import testNet3
+import testNetStage
 
 
-functions.phasedTransactions(testNet2.t2)
+functions.phasedTransactions(testNetStage.t15All)

@@ -10,4 +10,4 @@ import functions
 from functions import referenced_Phased_Transactions
 
 
-referenced_Phased_Transactions(testNet2.t2)
+referenced_Phased_Transactions(testNet2.p1)

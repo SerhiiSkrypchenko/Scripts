@@ -4,4 +4,4 @@ import testNet3
 from functions import referencedSendMoneyTransactions
 
 
-referencedSendMoneyTransactions(testNet2.t2)
+referencedSendMoneyTransactions(testNet2.t2All)

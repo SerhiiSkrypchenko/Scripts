@@ -6,7 +6,8 @@ import testNet2
 import testNet3
 import testNet1
 import testNet4_tap
-URL = testNet2.t2All
+
+URL = testNet2.t2
 second = "second"
 first = "first"
 print("secret phrase of first acc is : " + first)
@@ -14,11 +15,11 @@ print("secret phrase of second acc is : " + second)
 
 fee_APL = 100000000
 t1 = random.choice(URL)
-sec = 4
+sec = 30
 print(t1)
 
 getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": second}
-response = requests.request("GET", "http://" + t1 + "/apl",
+response = requests.request("GET", t1 + "/apl",
                                     params=getAccountId)
 accountReceive = response.json()["accountRS"]
 receive = response.json()["account"]
@@ -26,18 +27,18 @@ print(str("accountReceive = " + accountReceive))
 
 getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": first}
 response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    t1 + "/apl",
                                     params=getAccountId)
 accountSender = response.json()["accountRS"]
 sender = response.json()["account"]
 print(sender)
 
 getAccountFirst = {"": "%2Fapl", "requestType": "getAccount", "account": sender}
-response = requests.request("GET", "http://" + t1 + "/apl", params=getAccountFirst)
+response = requests.request("GET", t1 + "/apl", params=getAccountFirst)
 print(response.json())
 if "errorDescription" in response.text:
     response = requests.request("POST",
-                                "http://" + t1 + "/apl",
+                                t1 + "/apl",
                                 params=data.sendMoneyPrivate(str(accountSender),
                                                              str(200000000000000),
                                                              "0",
@@ -46,20 +47,20 @@ if "errorDescription" in response.text:
     print(response.json())
 else:
     balanceFirstAccount = response.json()['balanceATM']
-    print(balanceFirstAccount)
+    print("balance of first account is " + balanceFirstAccount)
 
 
 getAccountSecond = {"": "%2Fapl", "requestType": "getAccount", "account": receive}
-response = requests.request("GET", "http://" + t1 + "/apl", params=getAccountSecond)
+response = requests.request("GET", t1 + "/apl", params=getAccountSecond)
 print(response.json())
 if "errorDescription" in response.text:
-    response = requests.request("POST",
-                                "http://" + t1 + "/apl",
+    """response = requests.request("POST",
+                                t1 + "/apl",
                                 params=data.sendMoneyPrivate(str(accountReceive),
                                                              str(200000000000000),
                                                              "0",
                                                              str(fee_APL),
-                                                             "9211698109297098287"))
+                                                             "9211698109297098287"))"""
     print(response.json())
 else:
     balanceSecondAccount = response.json()["balanceATM"]
@@ -73,7 +74,7 @@ while alive:
 
         t1 = random.choice(URL)
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": second}
-        response = requests.request("GET", "http://" + t1 + "/apl",
+        response = requests.request("GET", t1 + "/apl",
                                     params=getAccountId)
         accountReceive = response.json()["accountRS"]
         receive = response.json()["account"]
@@ -81,17 +82,17 @@ while alive:
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": first}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    t1 + "/apl",
                                     params=getAccountId)
         accountSender = response.json()["accountRS"]
         sender = response.json()["account"]
         print(str("accountSender = " + accountSender))
         print(" PEER  = >> " + t1 + " << = ")
         getAccountFirst = {"": "%2Fapl", "requestType": "getAccount", "account": sender}
-        response = requests.request("GET", "http://" + t1 + "/apl", params=getAccountFirst)
+        response = requests.request("GET", t1 + "/apl", params=getAccountFirst)
         base_APL_AMOUNT = int(response.json()['balanceATM'])
         response = requests.request("POST",
-                                    "http://" + t1 + "/apl",
+                                    t1 + "/apl",
                                     params=data.sendMoneyFromStandardWalletToVaultWallet(str(accountReceive),
                                                                                          str(base_APL_AMOUNT-fee_APL),
                                                                                          first,
@@ -101,12 +102,12 @@ while alive:
         print(response.json())
         time.sleep(sec)
         getAccountSecond = {"": "%2Fapl", "requestType": "getAccount", "account": receive}
-        response = requests.request("GET", "http://" + t1 + "/apl", params=getAccountSecond)
+        response = requests.request("GET", t1 + "/apl", params=getAccountSecond)
         base_APL_AMOUNT = int(response.json()['balanceATM'])
 
 
         response = requests.request("POST",
-                                    "http://" + t1 + "/apl",
+                                    t1 + "/apl",
                                     params=data.sendMoneyFromStandardWalletToVaultWallet(str(accountSender),
                                                                  str(base_APL_AMOUNT - fee_APL),
                                                                  second,

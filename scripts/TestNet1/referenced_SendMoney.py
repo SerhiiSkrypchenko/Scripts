@@ -4,5 +4,5 @@ from functions import referenced_Phased_SendMoney
 
 
 
-referenced_Phased_SendMoney(testNet2.t2)
+referenced_Phased_SendMoney(testNet2.t2All)
 

@@ -4,7 +4,7 @@ import testNet3
 import testNet2
 import testNet4_tap
 
-sendMoneyToVaultWallet(testNet3.peer2, 29)
+sendMoneyToVaultWallet(testNet2.peer1, 29)
 
 
 

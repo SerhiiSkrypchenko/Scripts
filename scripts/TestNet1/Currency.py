@@ -29,7 +29,7 @@ def issueVaultCurrency(url, feeATM, sender, passphrase):
              'deadline': 1440
              }
     # randomUrl = random.choice(url)
-    response = requests.post("http://" + url + "/apl", param)
+    response = requests.post(url + "/apl", param)
     print(response.json())
     return response
 
@@ -52,14 +52,14 @@ def issueStandardCurrency(url, feeATM, secretPhrase):
              'deadline': 1440
              }
     # randomUrl = random.choice(url)
-    response = requests.post("http://" + url + "/apl", param)
+    response = requests.post(url + "/apl", param)
     print(response.json())
     return response
 
 
 
 while True:
-    url = random.choice(testNet2.t2)
+    url = random.choice(testNet2.p1)
     for i in range(0, len(vaults)):
         account = vaults[i].account
         print("ACCOUNT = " + str(account))

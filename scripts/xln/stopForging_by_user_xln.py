@@ -12,7 +12,7 @@ xln_t2 = ([xln_t2_1])
 
 def stopForgingByAccount(url):
     print("----------------------------------------------------------------------")
-    querystring = {"requestType": "stopForging", "secretPhrase": "0"}
+    querystring = {"requestType": "stopForging", "secretPhrase": "LunaInitAccount"}
     response = requests.request("POST", url + "/xln-api", params=querystring)
     print(response.json())
     print(" <<< ------------------  FORGING STOPPED ON  " + url + "     ---------------------- >>> ")

@@ -6,7 +6,7 @@ xln_t2_3 = "http://163.172.168.167"
 
 url = ([xln_t2_1])
 senderSecretPharse = "LunaInitAccount"
-amountMLN = "10000000000000"
+amountMLN = "1000000000000000"
 
 
 def sendMoney(recipient, amountMLN, secretPhrase, feeMLN):

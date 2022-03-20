@@ -1,19 +1,22 @@
-import testNet2
-import testNet3
-import testNet1
 import requests
 import data
 
-"""for k in range(1, 200, 1):
+xln_t2_1 = "http://163.172.130.129"
+xln_t2_2 = "http://163.172.191.246"
+xln_t2_3 = "http://163.172.168.167"
+
+xln_t2 = ([xln_t2_1, xln_t2_2, xln_t2_3])
+
+for k in range(1, 200, 1):
     getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(k)}
-    response = requests.request("GET", testNet1.peer1 + "/apl", headers=data.headers, params=getAccountId)
+    response = requests.request("GET", xln_t2_1 + "/xln-api", params=getAccountId)
     account = response.json()["accountRS"]
     #print(str(k) + ": " + account)
 
     getAccount = {"": "%2Fapl", "requestType": "getAccount", "account": str(account)}
-    response = requests.request("GET", testNet3.peer1 + "/apl", headers=data.headers, params=getAccount)
-    balanceATM = response.json()["balanceATM"]
-    print(str(k) + " Balance: " + balanceATM)"""
+    response = requests.request("GET", xln_t2_1 + "/xln-api", params=getAccount)
+    balanceMLN = response.json()["balanceMLN"]
+    print(str(k) + " Balance: " + balanceMLN)
 
 
 

@@ -47,8 +47,8 @@ while alive:
         amountMLN = random.choice(["2000000000", "3000000000", "4000000000", "5000000000", "6000000000", "7000000000", "8000000000"])
         print("amountMLN = " + amountMLN)
 
-        """payload = json.dumps({
-            "requestType": "sendMoney",
+        payload = json.dumps({
+            "requestType": sendMoney,
             "recipient": accountReceive,
             "amountMLN": int(amountMLN),
             "secretPhrase": p,
@@ -56,21 +56,21 @@ while alive:
             "deadline": 1440
         })
         headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json', 'Accept': 'text/plain'
         }
         print("SEND BY NEW TYPE")
-        response = requests.request("POST", random_url + "/xln-api", headers=headers, data=payload)"""
+        response = requests.request("POST", random_url + "/xln-api", headers=headers, data=payload)
 
-        response = requests.request("POST",
+        """response = requests.request("POST",
                                     random_url + "/xln-api",
                                     params=sendMoney(str(accountReceive),
                                                     amountMLN,
                                                     str(p),
                                                     "400000000"
-                                                    ))
-        #print(response.request.url)
-        #print(response.request.body)
-        #print(response.request.headers)
+                                                    ))"""
+        print(response.request.url)
+        print(response.request.body)
+        print(response.request.headers)
         print(response.json())
         if "errorDescription" in response.text:
             print()
@@ -78,7 +78,7 @@ while alive:
             print("recipient = " + response.json()["transactionJSON"]["recipient"])
             print("sender = " + response.json()["transactionJSON"]["sender"])
         print("----------- END -------------")
-        time.sleep(0)
+        time.sleep(1)
         p += 1
 
 

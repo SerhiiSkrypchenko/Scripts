@@ -13,10 +13,12 @@ for k in range(1, 200, 1):
     account = response.json()["accountRS"]
     #print(str(k) + ": " + account)
 
-    getAccount = {"": "%2Fapl", "requestType": "getAccount", "account": str(account)}
+    getAccount = {"": "%2Fapl", "requestType": "getAccount", "account": str(account), "includeEffectiveBalance": True}
     response = requests.request("GET", xln_t2_1 + "/xln-api", params=getAccount)
+    print(response.json())
     balanceMLN = response.json()["balanceMLN"]
-    print(str(k) + " Balance: " + balanceMLN)
+    unconfirmedBalanceMLN = response.json()["unconfirmedBalanceMLN"]
+    print(str(k) + " Balance: " + balanceMLN + " ; unconfirmedBalanceMLN = " + unconfirmedBalanceMLN)
 
 
 

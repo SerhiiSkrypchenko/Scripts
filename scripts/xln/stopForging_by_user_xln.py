@@ -18,6 +18,8 @@ def stopForgingByAccount(url):
     print(" <<< ------------------  FORGING STOPPED ON  " + url + "     ---------------------- >>> ")
 
 stopForgingByAccount(xln_t2_1)
+stopForgingByAccount(xln_t2_2)
+stopForgingByAccount(xln_t2_3)
 
 
 

@@ -5,8 +5,6 @@ xln_t2_1 = "http://163.172.130.129"
 xln_t2_2 = "http://163.172.191.246"
 xln_t2_3 = "http://163.172.168.167"
 
-
-
 WRONG_HEIGHT = -1
 
 known_peers = [xln_t2_1, xln_t2_2, xln_t2_3]
@@ -32,7 +30,7 @@ def getCurrentHeight(url):
         # print(response.json())
         if response:
             currentHeight = response.json()["height"]
-            print("Current Height on " + url + " = " + str(currentHeight) + " blocks ")
+            #print("Current Height on " + url + " = " + str(currentHeight) + " blocks ")
             return currentHeight
         else:
             return WRONG_HEIGHT

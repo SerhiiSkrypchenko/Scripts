@@ -11,14 +11,14 @@ xln_t2 = ([xln_t2_1])
 
 def stopForgingTn(url):
     print("----------------------------------------------------------------------")
-    querystring = {"requestType": "stopForging", "adminPassword": "0"}
+    querystring = {"requestType": "stopForging", "adminPassword": "12345"}
     response = requests.request("POST", url + "/xln-api", params=querystring)
     print(response.text)
     print(" <<< ------------------  FORGING STOPPED ON " + url + " ---------------------- >>> ")
 
 stopForgingTn(xln_t2_1)
-#stopForgingTn(xln_t2_2)
-#stopForgingTn(xln_t2_3)
+stopForgingTn(xln_t2_2)
+stopForgingTn(xln_t2_3)
 
 
 

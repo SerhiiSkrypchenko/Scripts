@@ -36,5 +36,5 @@ def startForgingOnAccount(peer, secretPhrase):
     response_StartForging = requests.request("POST", urls + "/xln-api", params=startForging)
     print(response_StartForging.json())
 
-startForgingOnAccount(xln_t2, "LunaInitAccount")
-#startForging(xln_t2, 0, 200)
+#startForgingOnAccount(xln_t2, "LunaInitAccount")
+startForging(xln_t2, 0, 200)

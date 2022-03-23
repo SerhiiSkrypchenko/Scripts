@@ -18,7 +18,8 @@ for k in range(1, 200, 1):
     print(response.json())
     balanceMLN = response.json()["balanceMLN"]
     unconfirmedBalanceMLN = response.json()["unconfirmedBalanceMLN"]
-    print(str(k) + " Balance: " + balanceMLN + " ; unconfirmedBalanceMLN = " + unconfirmedBalanceMLN)
+    effectiveBalanceXLN = response.json()["effectiveBalanceXLN"]
+    print(str(k) + " BalanceMLN: " + balanceMLN + " ; unconfirmedBalanceMLN = " + unconfirmedBalanceMLN + " ; effectiveBalanceXLN = " + str(effectiveBalanceXLN) + " XLN")
 
 
 

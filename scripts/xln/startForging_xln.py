@@ -6,7 +6,7 @@ xln_t2_1 = "http://163.172.130.129"
 xln_t2_2 = "http://163.172.191.246"
 xln_t2_3 = "http://163.172.168.167"
 
-xln_t2 = ([xln_t2_1])
+xln_t2 = ([xln_t2_1, xln_t2_2, xln_t2_3])
 
 def startForging(peer, fromAccount, toAccount):
     k = fromAccount
@@ -36,5 +36,5 @@ def startForgingOnAccount(peer, secretPhrase):
     response_StartForging = requests.request("POST", urls + "/xln-api", params=startForging)
     print(response_StartForging.json())
 
-#startForgingOnAccount(xln_t2, "LunaInitAccount")
+startForgingOnAccount(xln_t2, "LunaInitAccount")
 #startForging(xln_t2, 0, 200)

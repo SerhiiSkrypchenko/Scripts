@@ -12,7 +12,7 @@ import testNetStage
 def id_generator(size=5, chars=string.ascii_uppercase):
     return ''.join(random.choice(chars) for _ in range(size))
 
-URL = testNet2.t2All
+URL = testNetStage.t15All
 
 while True:
     k = 1

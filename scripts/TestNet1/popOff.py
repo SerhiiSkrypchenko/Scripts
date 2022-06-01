@@ -13,8 +13,11 @@ import karantin
 #functions.popOffByHeight("51.15.242.197", 89000)
 #functions.popOffByHeight("51.15.218.241", 89000)
 
-#functions.popOffByBlocks(testNet3.peer1, 100)
-functions.popOffByBlocks(testNet2.peer3, 2000)
+#functions.popOffByBlocks(testNet2.peer1, 2000)
+functions.popOffByBlocks(testNet2.peer2, 100)
+functions.popOffByBlocks(testNet2.peer3, 100)
+functions.popOffByBlocks(testNet2.peer4, 100)
+functions.popOffByBlocks(testNet2.peer5, 100)
 #functions.popOffByBlocks(testNet3.peer5, 100)
 #functions.popOffByBlocks(testNet2.peer5, 20)
 #functions.popOffByBlocks(karantin.peer1, 4000)

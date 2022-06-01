@@ -1,23 +1,26 @@
 import requests
 import urllib3
+import time
 urllib3.disable_warnings()
+import config_Luna_Wallet
 
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
+url = config_Luna_Wallet.xln_t1_1
 
 def getBlock(url):
-    querystring = {"": "%2Fapl", "requestType": "getBlock"}
-    response = requests.request("GET", url + "/xln-api", params=querystring, verify=False)
+    #querystring = {"": "%2Fapl", "requestType": "getBlock"}
+    response = requests.request("GET", url + "/api/rest/block/one", verify=False)
     if response:
-        print(response.json())
+        #print(response.json())
         currentHeight = response.json()["height"]
-        print("Current Height on " + url + " = " + str(currentHeight) + " blocks ")
+        numberOfTransactions = response.json()["numberOfTransactions"]
+        print("Current Height on " + url + " = " + str(currentHeight) + " blocks; " + " numberOfTransactions = " + str(numberOfTransactions))
+
+
+
 
 while True:
-    getBlock(xln_t2_1)
-    getBlock(xln_t2_2)
-    getBlock(xln_t2_3)
+    getBlock(url)
+    time.sleep(1)
 
 
 

@@ -15,6 +15,6 @@ import testNetStage
 
 
 #sendMessage(testNet2.t2All)
-sendMessage(testNet2.t2All)
+sendMessage(testNetStage.t15All)
 
 

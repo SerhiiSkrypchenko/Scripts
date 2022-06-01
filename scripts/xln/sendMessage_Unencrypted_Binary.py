@@ -48,51 +48,15 @@ def sendMessage(url):
 
             sendMessage = {"requestType": "sendMessage",
                            "recipient": str(accountReceive),
-                           "message": " MESSAGE"
-                                      ""
-                                      ""
-                                      "          "
-                                      "KILL SHARDING   !!!! "
-                                      "         #$%^&*()-_=+\|'?/" ".        "
-                                      "                    ,][{};:` /''~'' !@-                           "
-                                      ""
-                                      ""
-                                      "                                                      ....//" + str(id_generator()),
+                           "message": "cd6a3755ef9936cfd908d687fbcace67622f81c4990b654bb1dd66423514f7dd",
                            "secretPhrase": str(p),
                            "feeMLN": "2000000000",
                            "deadline": "1440",
                            "sender": str(sender),
-                           "isCustomFee": "false",
-                           "messageIsPrunable": "true",
-                           "messageIsText": "true",
-                           "messageToEncrypt": "true",
-                           "messageToEncryptIsText": "true",
-                           "encryptedMessageData": "1",
-                           "encryptedMessageNonce": "1",
-                           "encryptedMessageIsPrunable": "1",
-                           "compressMessageToEncrypt": "MESSAGE "
-                                                       ""
-                                                       ""
-                                                       ""
-                                                       ""
-                                                       ""
-                                                       "                                                                     #$%^&*()-_=+\|'?/" ".,][{};:` /''~'' !@-",
-                           "messageToEncryptToSelf": "MESSAGE to encrypt #$%^&*()           "
-                                                     ""
-                                                     ""
-                                                     ""
-                                                     ""
-                                                     ""
-                                                     ""
-                                                     "                                                                -_=+\|'?/" ".,][{};:` /''~'' !@-",
-                           "messageToEncryptToSelfIsText": "true",
-                           "encryptToSelfMessageData": "1",
-                           "encryptToSelfMessageNonce": "1",
-                           "compressMessageToEncryptToSelf": "MESSAGE to encrypt                                                                       #$%^&*()-_=+\|'?/" ".,][{};:` /''~'' !@-"
-
-                           #"messageFile": "undefined",
+                           "isCustomFee": "true",
+                           "messageIsText": "false"
                            }
-                           #"messageIsText": "true"}
+
             try:
                 response = requests.request("POST", urls + "/api/rpc", params=sendMessage)
                 print(response.json())

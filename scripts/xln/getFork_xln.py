@@ -1,13 +1,9 @@
 import requests
-port = ":7876"
-
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
+import config_Luna_Wallet
 
 WRONG_HEIGHT = -1
 
-known_peers = [xln_t2_1, xln_t2_2, xln_t2_3]
+known_peers = config_Luna_Wallet.xln_t1
 available_peers= []
 
 def getCurrentHeightTn():
@@ -27,7 +23,7 @@ def getCurrentHeight(url):
     querystring = {"": "%2Fapl", "requestType": "getBlock"}
     try:
         response = requests.request("GET", url + "/xln-api", params=querystring)
-        # print(response.json())
+        #print(response.json())
         if response:
             currentHeight = response.json()["height"]
             #print("Current Height on " + url + " = " + str(currentHeight) + " blocks ")
@@ -57,7 +53,7 @@ def getBlockId(height, url):
         print("Error request, wrong height=", height)
         return 0
 
-def getForkTn2Xln():
+def getForkTnXln():
     startHeight = getCurrentHeightTn()
     while startHeight != 0:
         print("start height = "+str(startHeight))
@@ -75,5 +71,5 @@ def getForkTn2Xln():
             #print(" <<< ------- >>> ")
             break
 
-getForkTn2Xln()
+getForkTnXln()
 

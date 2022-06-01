@@ -1,25 +1,16 @@
 import requests
 import data
+import config_Luna_Wallet
 
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
+url = config_Luna_Wallet.xln_t1
+ADMIN_PASSWORD = config_Luna_Wallet.ADMIN_PASSWORD_T1
 
-tn2_Admin_Password = "12345"
-tn3_Admin_Password = "1"
-
-pass_admin = tn2_Admin_Password
-
-getForging = {"requestType": "getForging", "adminPassword": pass_admin}
-response = requests.request("GET", xln_t2_1 + "/xln-api", headers=data.headers, params=getForging)
-print(response.json())
-
-getForging = {"requestType": "getForging", "adminPassword": pass_admin}
-response = requests.request("GET", xln_t2_2 + "/xln-api", headers=data.headers, params=getForging)
-print(response.json())
-
-getForging = {"requestType": "getForging", "adminPassword": pass_admin}
-response = requests.request("GET", xln_t2_3 + "/xln-api", headers=data.headers, params=getForging)
-print(response.json())
+for peer in url:
+    getForging = {"requestType": "getForging", "adminPassword": ADMIN_PASSWORD}
+    response = requests.request("GET", peer + "/api/rpc", headers=data.headers,
+                                params=getForging)
+    print(peer + ":")
+    print(response.json())
+    print()
 
 

@@ -1,26 +1,24 @@
 import requests
+import config_Luna_Wallet
 
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
-
-url = ([xln_t2_1])
+url = config_Luna_Wallet.xln_t1_3
+ADMIN_PASSWORD = config_Luna_Wallet.ADMIN_PASSWORD_T1
 
 def scanByBlocks(url, blocks, validate):
     print("---------- START SCAN on --->>> " + url + " <<< ----")
-    querystring = {"requestType": "scan", "adminPassword": "12345", "numBlocks": str(blocks), "validate": validate}
-    response = requests.request("POST", url + "/xln-api", params=querystring)
+    querystring = {"requestType": "scan", "adminPassword": ADMIN_PASSWORD, "numBlocks": str(blocks), "validate": validate}
+    response = requests.request("POST", url + "/api/rpc", params=querystring)
     print(response.text)
     print("--------END of SCAN proccess on peer --->>> " + url + " <<< --------")
 
 def scanByHeight(url, height, validate):
     print("---------- START SCAN on --->>> " + url + " <<< ----")
-    querystring = {"requestType": "scan", "adminPassword": "12345", "height": height, "validate": validate}
-    response = requests.request("POST", url + "/xln-api", params=querystring)
+    querystring = {"requestType": "scan", "adminPassword": ADMIN_PASSWORD, "height": height, "validate": validate}
+    response = requests.request("POST", url + "/api/rpc", params=querystring)
     print(response.text)
     print("--------END of SCAN proccess on peer --->>> " + url + " <<< --------")
 
-scanByHeight(xln_t2_2, 1100, True)
+scanByHeight(url, 0, True)
 
 
 

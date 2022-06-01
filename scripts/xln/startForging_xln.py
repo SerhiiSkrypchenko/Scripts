@@ -1,12 +1,9 @@
 import requests
 import random
 import time
+import config_Luna_Wallet
 
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
-
-xln_t2 = ([xln_t2_1, xln_t2_2, xln_t2_3])
+url = config_Luna_Wallet.xln_t1
 
 def startForging(peer, fromAccount, toAccount):
     k = fromAccount
@@ -14,7 +11,7 @@ def startForging(peer, fromAccount, toAccount):
         urls = random.choice(peer)
         print("STARTING FORGING ON ======= " + urls)
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(k)}
-        response = requests.request("GET", urls + "/xln-api", params=getAccountId)
+        response = requests.request("GET", urls + "/api/rpc", params=getAccountId)
         # print(response.json())
         account = response.json()["account"]
         print(response.json())
@@ -22,7 +19,7 @@ def startForging(peer, fromAccount, toAccount):
         # print(str(account))
         startForging = {"requestType": "startForging", "secretPhrase": str(k), "sender": str(account),
                         "deadline": "1440"}
-        response_StartForging = requests.request("POST", urls + "/xln-api", params=startForging)
+        response_StartForging = requests.request("POST", urls + "/api/rpc", params=startForging)
         print(response_StartForging.text)
         print(str(k) + " request <<<< ------ Account " + str(account) + " with secretPhrase " + str(
             k) + " on peer " + urls + " is started ------------- >>>>")
@@ -33,8 +30,9 @@ def startForgingOnAccount(peer, secretPhrase):
     urls = random.choice(peer)
     startForging = {"requestType": "startForging", "secretPhrase": secretPhrase,
                     "deadline": "1440"}
-    response_StartForging = requests.request("POST", urls + "/xln-api", params=startForging)
+    response_StartForging = requests.request("POST", urls + "/api/rpc", params=startForging)
     print(response_StartForging.json())
 
 #startForgingOnAccount(xln_t2, "LunaInitAccount")
-startForging(xln_t2, 0, 200)
+#startForgingOnAccount(xln_t2, "1")
+startForging(url, 1, 200)

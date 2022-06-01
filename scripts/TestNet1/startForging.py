@@ -42,4 +42,4 @@ def startForgingOnAccount(peer, secretPhrase, account):
     response_StartForging = requests.request("POST", urls + "/apl", params=startForging)
     print(response_StartForging.json())
 
-startForging(xln_t2, 1000, 1009)
+startForging(testNetStage.t15All, 1, 200)

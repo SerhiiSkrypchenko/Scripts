@@ -1,24 +1,22 @@
 import requests
+import config_Luna_Wallet
 
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
 
-xln_t2 = ([xln_t2_1])
+ADMIN_PASSWORD = config_Luna_Wallet.ADMIN_PASSWORD_T1
 
-#tn2 = 12345
-#tn3 = 1
 
 def stopForgingTn(url):
     print("----------------------------------------------------------------------")
-    querystring = {"requestType": "stopForging", "adminPassword": "12345"}
-    response = requests.request("POST", url + "/xln-api", params=querystring)
+    querystring = {"requestType": "stopForging", "adminPassword": ADMIN_PASSWORD}
+    response = requests.request("POST", url + "/api/rpc", params=querystring)
     print(response.text)
     print(" <<< ------------------  FORGING STOPPED ON " + url + " ---------------------- >>> ")
 
-stopForgingTn(xln_t2_1)
-stopForgingTn(xln_t2_2)
-stopForgingTn(xln_t2_3)
+#stopForgingTn(config_Luna_Wallet.xln_t1_1)
+#stopForgingTn(config_Luna_Wallet.xln_t1_2)
+#stopForgingTn(config_Luna_Wallet.xln_t1_3)
+#stopForgingTn(config_Luna_Wallet.xln_t1_4)
+stopForgingTn(config_Luna_Wallet.xln_t1_1)
 
 
 

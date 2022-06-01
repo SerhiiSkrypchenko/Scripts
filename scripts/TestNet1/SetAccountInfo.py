@@ -5,6 +5,8 @@ import time
 import testNet2
 import testNet3
 import testNet1
+import testNetStage
+
 from exchangeFunctions import vaults
 from exchangeFunctions import printVault
 import json
@@ -74,4 +76,4 @@ def setAccounInfoStandard(url):
         time.sleep(20)
 
 #setAccounInfoVault(testNet2.t2)
-setAccounInfoStandard(testNet1.t1)
+setAccounInfoStandard(testNetStage.t15All)

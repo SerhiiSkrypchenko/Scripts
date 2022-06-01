@@ -9,7 +9,7 @@ import testNet3
 import testNet1
 import testNet4_tap
 import testNetStage
-URL = testNet1.t1
+URL = testNetStage.t15All
 
 alive = True
 while alive:

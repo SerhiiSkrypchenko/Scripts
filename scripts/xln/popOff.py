@@ -1,30 +1,26 @@
 import requests
+import config_Luna_Wallet
 
-import random
-
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
-
-url = ([xln_t2_1])
+ADMIN_PASSWORD = config_Luna_Wallet.ADMIN_PASSWORD_T1
+url = config_Luna_Wallet.xln_t1_2
 
 def popOffByBlocks(url, blocks):
     print("---------- START POP OFF on --->>> " + url + " <<< ----")
-    querystring = {"requestType": "popOff", "adminPassword": "12345", "numBlocks": str(blocks)}
-    response = requests.request("POST", url + "/xln-api", params=querystring)
+    querystring = {"requestType": "popOff", "adminPassword": ADMIN_PASSWORD, "numBlocks": str(blocks)}
+    response = requests.request("POST", url + "/api/rpc", params=querystring)
     print(response.text)
     print("--------END of POP OFF proccess on peer --->>> " + url + " <<< --------")
 
-def popOffByHeight(url, height):
+def popOffByHeight(url, height, validate):
     print("---------- START POP OFF on --->>> " + url + " <<< ----")
-    querystring = {"requestType": "popOff", "adminPassword": "12345", "height": str(height)}
-    response = requests.request("POST", url + "/xln-api", params=querystring)
+    querystring = {"requestType": "popOff", "adminPassword": ADMIN_PASSWORD, "height": str(height), "validate": validate}
+    response = requests.request("POST", url + "/api/rpc", params=querystring)
     print(response.text)
     print("--------END of POP OFF proccess on peer --->>> " + url + " <<< --------")
 
-popOffByHeight(xln_t2_2, 1)
+#popOffByHeight(xln_t2_1, 1, False)
 
-#popOffByBlocks(xln_t2_2, 6000)
+popOffByHeight(url, 1, True)
 
 
 

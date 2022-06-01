@@ -1,12 +1,10 @@
 import requests
 import random
 import time
+import config_Luna_Wallet
 
-xln_t2_1 = "http://163.172.130.129"
-xln_t2_2 = "http://163.172.191.246"
-xln_t2_3 = "http://163.172.168.167"
 
-url = ([xln_t2_1, xln_t2_2, xln_t2_3])
+url = config_Luna_Wallet.xln_t1
 
 secondSecretPhrase = "failed2"
 firstSecretPhrase = "failed1"

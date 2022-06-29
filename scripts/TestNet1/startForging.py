@@ -8,11 +8,7 @@ import testNet3
 import testNet4_tap
 import testNetStage
 import time
-xln_t2_1 = "163.172.130.129"
-xln_t2_2 = "163.172.191.246"
-xln_t2_3 = "163.172.168.167"
 
-xln_t2 = ([xln_t2_1, xln_t2_2, xln_t2_3])
 
 def startForging(peer, fromAccount, toAccount):
     k = fromAccount
@@ -42,4 +38,4 @@ def startForgingOnAccount(peer, secretPhrase, account):
     response_StartForging = requests.request("POST", urls + "/apl", params=startForging)
     print(response_StartForging.json())
 
-startForging(testNetStage.t15All, 1, 200)
+startForging(testNetStage.t15All, 80, 200)

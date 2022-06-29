@@ -9,4 +9,4 @@ def fullReset(peer, adminPassword):
     response_fullReset = requests.request("POST", peer + "/api/rpc", params=fullReset)
     print(response_fullReset.json())
 
-fullReset(config_Luna_Wallet.xln_t1_4, ADMIN_PASSWORD)
+fullReset(config_Luna_Wallet.xln_mn_4, ADMIN_PASSWORD)

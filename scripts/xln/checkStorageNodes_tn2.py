@@ -10,13 +10,19 @@ xln_t2_4 = "http://51.15.228.5" + port
 xln_t2_5 = "http://212.47.226.145" + port
 xln_t2_6 = "http://51.15.218.18" + port"""
 
-xln_t2_1 = "http://st0.dfs.t2.testnet.lunaonewallet.com"
+"""xln_t2_1 = "http://st0.dfs.t2.testnet.lunaonewallet.com"
 xln_t2_2 = "http://st1.dfs.t2.testnet.lunaonewallet.com"
 xln_t2_3 = "http://st2.dfs.t2.testnet.lunaonewallet.com"
 xln_t2_4 = "http://st3.dfs.t2.testnet.lunaonewallet.com"
 xln_t2_5 = "http://st4.dfs.t2.testnet.lunaonewallet.com"
-xln_t2_6 = "http://st6.dfs.t2.testnet.lunaonewallet.com"
+xln_t2_6 = "http://st6.dfs.t2.testnet.lunaonewallet.com"""
 
+xln_t2_1 = "https://store0.dfs-tn1.firstbridge.work"
+xln_t2_2 = "https://store1.dfs-tn1.firstbridge.work"
+xln_t2_3 = "https://store2.dfs-tn1.firstbridge.work"
+xln_t2_4 = "https://store3.dfs-tn1.firstbridge.work"
+xln_t2_5 = "https://store4.dfs-tn1.firstbridge.work"
+#xln_t2_6 = "https://store5.dfs-tn1.firstbridge.work"
 
 
 
@@ -50,7 +56,7 @@ print(response.json())
 response = requests.request("GET", xln_t2_5 + "/q/health", headers=data.headers)
 print(response.json())
 
-response = requests.request("GET", xln_t2_6 + "/q/health", headers=data.headers)
-print(response.json())
+#response = requests.request("GET", xln_t2_6 + "/q/health", headers=data.headers)
+#print(response.json())
 
 

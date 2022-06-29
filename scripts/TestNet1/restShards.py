@@ -9,7 +9,7 @@ import testNetStage
 
 
 local = input("Enter local + or -: ")
-testNet = input("Enter TestNet (t1, t2 or t3) for calling restShards function: ")
+testNet = input("Enter TestNet (t1, t2, t3 ot stage) for calling restShards function: ")
 if local == "+":
     functions.restShards(localhost)
 elif local == "-":

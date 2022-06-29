@@ -21,7 +21,7 @@ peer8 = "https://wallet.test.apollowallet.org"
 
 localhost = "http://localhost:7876"
 apollowallet = "wallet.test.apollowallet.org"
-t1 = ([peer4, peer2, peer1])
+t1 = ([peer1])
 #t1 = ([peer1, peer3, peer4, peer5, peer6, peer2, peer7])
 local = ([localhost])
 exchange = ([peer1])

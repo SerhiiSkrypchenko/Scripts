@@ -61,7 +61,7 @@ while alive:
             print("sender = " + response.json()["transactionJSON"]["sender"])
         #print(" <<<<<<< --------- " + t1 + " ----- >>>>>>>")
         print("----------- END -------------")
-        time.sleep(3)
+        time.sleep(0)
         p += 1
 
 

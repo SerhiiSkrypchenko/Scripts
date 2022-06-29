@@ -4,7 +4,7 @@ import time
 import json
 import config_Luna_Wallet
 
-url = config_Luna_Wallet.xln_t1
+url = config_Luna_Wallet.xln_mn
 
 
 def setAccounInfoStandard(url):
@@ -22,7 +22,7 @@ def setAccounInfoStandard(url):
 
         print(randomUrl)
         try:
-            response = requests.request("POST", randomUrl + "/api/rpc", params=setAccountInfo)
+            response = requests.request("POST", randomUrl + "/api/rpc", params=setAccountInfo, verify=False)
             print("RESPONSE = " + str(response.json()))
             print("----- END -----")
             print("")

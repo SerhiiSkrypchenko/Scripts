@@ -8,6 +8,7 @@ from functions import aliasTransactionsTn
 from functions import aliasTransactions
 import testNet3
 import testNet2
+import testNetStage
 import time
 
 def id_generator(size=3, chars=string.ascii_uppercase):
@@ -195,6 +196,6 @@ def aliasTransactionsTn(testNet):
             k += 1
 
 
-aliasTransactionsTn(testNet2.t2)
+aliasTransactionsTn(testNetStage.t15All)
 
 

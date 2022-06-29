@@ -3,7 +3,7 @@ import config_Luna_Wallet
 
 WRONG_HEIGHT = -1
 
-known_peers = config_Luna_Wallet.xln_t1
+known_peers = config_Luna_Wallet.xln_mn_ALL
 available_peers= []
 
 def getCurrentHeightTn():

@@ -2,11 +2,11 @@ import requests
 import random
 import config_Luna_Wallet
 
-url = config_Luna_Wallet.xln_t1
+url = config_Luna_Wallet.xln_mn
 
-senderSecretPhrase = "0"
+senderSecretPhrase = "1"
 #senderSecretPhrase = "LunaInitAccount"
-amountMLN = "110000000000000"
+amountMLN = "100000000000000"
 
 
 def sendMoney(recipient, amountMLN, secretPhrase, feeMLN):

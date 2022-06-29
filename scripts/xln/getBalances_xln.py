@@ -2,7 +2,7 @@ import requests
 import config_Luna_Wallet
 import random
 
-url = random.choice(config_Luna_Wallet.xln_t1)
+url = random.choice(config_Luna_Wallet.xln_mn)
 
 oldEffBalance = 0
 for k in range(1, 200, 1):

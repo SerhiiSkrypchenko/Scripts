@@ -8,5 +8,5 @@ import testNetStage
 import functions
 
 
-functions.pollTransaction(testNetStage.t15All, 133950)
+functions.pollTransaction(testNetStage.t15All, 677664)
 

@@ -6,7 +6,7 @@ import string
 import config_Luna_Wallet
 
 
-url = config_Luna_Wallet.xln_t1
+url = config_Luna_Wallet.xln_mn
 #LunaInitAccount = secretPhrase of main account
 
 def id_generator(size=100, chars=string.ascii_uppercase + string.digits):
@@ -26,7 +26,7 @@ def sendMessage(url):
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
             response = requests.request("GET",
                                         urls + "/api/rpc",
-                                        params=getAccountId)
+                                        params=getAccountId, verify = False)
             print(response.json())
             accountReceive = response.json()["accountXLN"]
             print("-------------")
@@ -36,7 +36,7 @@ def sendMessage(url):
             getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(p)}
             response = requests.request("GET",
                                         urls + "/api/rpc",
-                                        params=getAccountId)
+                                        params=getAccountId, verify = False)
             print(response.json())
             accountSender = response.json()["accountXLN"]
             sender = response.json()["account"]
@@ -94,7 +94,7 @@ def sendMessage(url):
                            }
                            #"messageIsText": "true"}
             try:
-                response = requests.request("POST", urls + "/api/rpc", params=sendMessage)
+                response = requests.request("POST", urls + "/api/rpc", params=sendMessage, verify = False)
                 print(response.json())
                 print(" <<<<<<< --------- " + urls + " ----- >>>>>>>")
                 print("----------------------------------------------------------------------------------------------")

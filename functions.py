@@ -74,9 +74,9 @@ def getCurrentHeightTn(tn):
                     heightPeer2 = getCurrentHeight(testNetStage.peer2)
                     heightPeer3 = getCurrentHeight(testNetStage.peer3)
                     heightPeer4 = getCurrentHeight(testNetStage.peer4)
-                    heightPeer5 = getCurrentHeight(testNetStage.peer5)
+                    #heightPeer5 = getCurrentHeight(testNetStage.peer5)
                     heightPeer6 = getCurrentHeight(testNetStage.peer6)
-                    minHeight = min(heightPeer6, heightPeer4, heightPeer1, heightPeer2, heightPeer5,
+                    minHeight = min(heightPeer6, heightPeer4, heightPeer1, heightPeer2,
                                     heightPeer3)
                     print("min Height = " + str(minHeight) + " blocks")
                     return minHeight
@@ -175,18 +175,18 @@ def getForkHeight(tn):
         peer2BlockId = getBlockId(startHeight, testNetStage.peer2)
         peer3BlockId = getBlockId(startHeight, testNetStage.peer3)
         peer4BlockId = getBlockId(startHeight, testNetStage.peer4)
-        peer5BlockId = getBlockId(startHeight, testNetStage.peer5)
+        #peer5BlockId = getBlockId(startHeight, testNetStage.peer5)
         peer6BlockId = getBlockId(startHeight, testNetStage.peer6)
         print(" <<< ------- >>> ")
-        while not (peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId):
+        while not (peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer6BlockId):
             # peer1BlockId == peer2BlockId == peer3BlockId == peer4BlockId == peer5BlockId == peer6BlockId == peer7BlockId:
             startHeight = startHeight - 1
-            peer1BlockId = getBlockId(startHeight, testNet1.peer1)
-            peer2BlockId = getBlockId(startHeight, testNet1.peer2)
-            peer3BlockId = getBlockId(startHeight, testNet1.peer3)
-            peer4BlockId = getBlockId(startHeight, testNet1.peer4)
-            peer5BlockId = getBlockId(startHeight, testNet1.peer5)
-            peer6BlockId = getBlockId(startHeight, testNet1.peer6)
+            ppeer1BlockId = getBlockId(startHeight, testNetStage.peer1)
+            peer2BlockId = getBlockId(startHeight, testNetStage.peer2)
+            peer3BlockId = getBlockId(startHeight, testNetStage.peer3)
+            peer4BlockId = getBlockId(startHeight, testNetStage.peer4)
+            #peer5BlockId = getBlockId(startHeight, testNetStage.peer5)
+            peer6BlockId = getBlockId(startHeight, testNetStage.peer6)
             print(" <<< ------- >>> ")
 
     def getForkTn2():
@@ -1841,7 +1841,7 @@ def referenced_Phased_Transactions(testnet):
     currentHeight = response.json()["height"]
     print("Current Height = " + str(currentHeight))
     #finishHeight = 300001
-    finishHeight = currentHeight + 3000
+    finishHeight = currentHeight + 20000
     print("Finish Height = " + str(finishHeight))
 
     response = requests.request("POST", url + "/apl", data=data.payload,

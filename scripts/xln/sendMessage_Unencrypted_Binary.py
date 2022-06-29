@@ -6,7 +6,7 @@ import string
 import config_Luna_Wallet
 
 
-url = config_Luna_Wallet.xln_t1
+url = config_Luna_Wallet.xln_mn
 #LunaInitAccount = secretPhrase of main account
 
 def id_generator(size=100, chars=string.ascii_uppercase + string.digits):

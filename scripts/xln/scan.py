@@ -1,7 +1,7 @@
 import requests
 import config_Luna_Wallet
 
-url = config_Luna_Wallet.xln_t1_3
+url = config_Luna_Wallet.xln_mn_3
 ADMIN_PASSWORD = config_Luna_Wallet.ADMIN_PASSWORD_T1
 
 def scanByBlocks(url, blocks, validate):

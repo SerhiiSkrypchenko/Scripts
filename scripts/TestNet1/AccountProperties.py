@@ -5,6 +5,7 @@ import time
 import testNet2
 import testNet3
 import testNet1
+import testNetStage
 from exchangeFunctions import vaults
 from exchangeFunctions import printVault
 import json
@@ -112,6 +113,6 @@ def setAccountPropertyStandard(url):
             i += 1
 
 
-setAccountPropertyStandard(testNet3.t3)
+setAccountPropertyStandard(testNetStage.t15All)
 #AccountPropertyVault(testNet3.p1)
-setAccountPropertyStandard(testNet3.t3)
+setAccountPropertyStandard(testNetStage.t15All)

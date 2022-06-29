@@ -1,7 +1,7 @@
 import requests
 import config_Luna_Wallet
 
-url = config_Luna_Wallet.xln_t1_1
+url = config_Luna_Wallet.xln_mn_2
 ADMIN_PASSWORD = config_Luna_Wallet.ADMIN_PASSWORD_T1
 
 def trimDerivedTables(url):

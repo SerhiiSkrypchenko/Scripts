@@ -9,5 +9,5 @@ import karantin
 import mainNet
 from testNetStage import t15All
 
-getForkHeight(t2)
+getForkHeight(t15All)
 

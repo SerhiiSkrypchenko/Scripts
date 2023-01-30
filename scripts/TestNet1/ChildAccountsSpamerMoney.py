@@ -11,7 +11,7 @@ import testNet2
 import testNet3
 import testNet1
 import testNet4_tap
-URL = testNet4_tap.t4
+URL = testNet3.t3
 
 parentAccount =  "APL-X5JH-TJKJ-DVGC-5T2V8"
 psecret = "1"

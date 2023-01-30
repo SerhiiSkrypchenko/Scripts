@@ -5,6 +5,8 @@ import time
 import testNet2
 import testNet3
 import testNet1
+import testNetStage
+
 from exchangeFunctions import vaults
 from exchangeFunctions import printVault
 import json
@@ -32,7 +34,7 @@ def setAccounInfoVault(url):
 
         print(randomUrl)
         try:
-            response = requests.request("POST", "http://" + randomUrl + "/apl", params=setAccountInfo)
+            response = requests.request("POST", randomUrl + "/apl", params=setAccountInfo)
             print("RESPONSE = " + str(response.json()))
             print("----- END -----")
             print("")
@@ -43,6 +45,7 @@ def setAccounInfoVault(url):
         except json.decoder.JSONDecodeError as e:
             print("Error = " + str(e))
         i += 1
+        time.sleep(20)
 
 def setAccounInfoStandard(url):
     for i in range(1, 200):
@@ -58,11 +61,11 @@ def setAccounInfoStandard(url):
 
         print(randomUrl)
         try:
-            response = requests.request("POST", "http://" + randomUrl + "/apl", params=setAccountInfo)
+            response = requests.request("POST", randomUrl + "/apl", params=setAccountInfo)
             print("RESPONSE = " + str(response.json()))
             print("----- END -----")
             print("")
-            time.sleep(4)
+            time.sleep(0)
         except requests.exceptions.ConnectionError:
             requests.status_code = "Connection refused"
         except UnicodeError as e:
@@ -70,6 +73,7 @@ def setAccounInfoStandard(url):
         except json.decoder.JSONDecodeError as e:
             print("Error = " + str(e))
         i += 1
+        time.sleep(20)
 
-setAccounInfoVault(testNet2.p1)
-setAccounInfoStandard(testNet2.t2)
+#setAccounInfoVault(testNet2.t2)
+setAccounInfoStandard(testNetStage.t15All)

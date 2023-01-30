@@ -11,7 +11,7 @@ import testNet2
 
 
 #exchangeFunctions.flush(testNet3.localhost)
-exchangeFunctions.flush(testNet3.localhost)
+exchangeFunctions.flush(testNet2.peer1)
 #exchangeFunctions.flush(testNet2.peer3)
 #exchangeFunctions.flush(testNet2.peer4)
 #exchangeFunctions.flush(testNet2.peer5)

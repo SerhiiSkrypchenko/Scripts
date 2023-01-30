@@ -5,7 +5,7 @@ import time
 import testNet2
 import testNet3
 import testNet1
-URL = testNet2.t2All
+URL = testNet3.t3
 second = "second"
 first = "first"
 print("secret phrase of first acc is : " + first)

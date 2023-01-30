@@ -7,6 +7,7 @@ from testNet2 import t2
 from testNet3 import t3
 import karantin
 import mainNet
+from testNetStage import t15All
 
-getForkHeight(t1)
+getForkHeight(t15All)
 

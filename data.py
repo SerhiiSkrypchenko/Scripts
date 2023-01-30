@@ -44,12 +44,15 @@ def sendMoneyReferenced(recipient, amountATM, secretPhrase, feeATM, sender, refe
 
 def sendMoneyPhased(recipient, amountATM, secretPhrase, feeATM, sender, phasingFinishHeight):
     return {"requestType": "sendMoney", "recipient": recipient, "amountATM": amountATM,
-            "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
+            "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "20",
             "sender": sender, "phasingFinishHeight": phasingFinishHeight, "phased": "true", "phasingVotingModel": "1",
             "phasingQuorum": "1"}
 
 def sendMoney_Phased_Referenced(recipient, amountATM, secretPhrase, feeATM, sender, phasingFinishHeight, referencedTransactionFullHash):
     return {"requestType": "sendMoney", "recipient": recipient, "amountATM": amountATM,
-            "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "1440",
+            "secretPhrase": secretPhrase, "feeATM": feeATM, "deadline": "30",
             "sender": sender, "phasingFinishHeight": phasingFinishHeight, "phased": "true", "phasingVotingModel": "1",
-            "phasingQuorum": "1", "referencedTransactionFullHash": referencedTransactionFullHash, "messageIsPrunable": True}
+            "phasingQuorum": "1", "referencedTransactionFullHash": referencedTransactionFullHash, "messageIsPrunable": True,
+            "add_message": True,
+            "messageToEncrypt": "test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long test message long"
+            }

@@ -8,30 +8,30 @@ import testNet1
 
 alive = True
 while alive:
-    i = 900122
-    base_APL_AMOUNT = 9998000000000
+    i = 900301
+    base_APL_AMOUNT = 20000000000000
     fee_APL = 100000000
     alive = True
     while alive:
         print(" <<<< --- START ---- sendMoney to another accounts>>>> ")
         print("secret phrase is " + str(i))
-        t1 = random.choice(testNet2.t2)
+        t1 = random.choice(testNet2.p1)
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i+1)}
-        response = requests.request("GET", "http://" + t1 + "/apl",
+        response = requests.request("GET", t1 + "/apl",
                                     params=getAccountId)
         accountReceive = response.json()["accountRS"]
         print(str("accountReceive = " + accountReceive))
 
         getAccountId = {"": "%2Fapl", "requestType": "getAccountId", "secretPhrase": str(i)}
         response = requests.request("GET",
-                                    "http://" + t1 + "/apl",
+                                    t1 + "/apl",
                                     params=getAccountId)
         accountSender = response.json()["accountRS"]
         sender = response.json()["account"]
         print(str("accountSender = " + accountSender))
         print(" PEER  = >> " + t1 + " << = ")
         response = requests.request("POST",
-                                    "http://" + t1 + "/apl",
+                                    t1 + "/apl",
                                     params=data.sendMoney(str(accountReceive),
                                                                                          str(base_APL_AMOUNT-fee_APL),
                                                                                          str(i),
@@ -51,7 +51,7 @@ while alive:
         print(response.json())
         base_APL_AMOUNT = base_APL_AMOUNT-fee_APL
         print("----------- END -------------")
-        time.sleep(240)
+        time.sleep(60)
         i+=1
 
 

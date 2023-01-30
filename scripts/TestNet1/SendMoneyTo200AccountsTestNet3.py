@@ -7,7 +7,7 @@ import testNet4_tap
 
 #sendMoneyToAccounts(testNet3.peer1, 200)
 
-sendMoneyToManyAccounts(testNet3.peer1, 100999, 100000)
+sendMoneyToManyAccounts(testNet3.peer1, 201, 1)
 
 
 

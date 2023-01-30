@@ -109,7 +109,7 @@ def ethBalance(url):
 
         }
 
-        response = requests.request("GET", "http://" + randomUrl + "/rest/dex/balance", headers=headers, params=querystring)
+        response = requests.request("GET", randomUrl + "/rest/dex/balance", headers=headers, params=querystring)
         print(response.text)
 
 
@@ -124,7 +124,7 @@ def vaultLogin(url):
         headers = {
             'Content-Type': "application/x-www-form-urlencoded"
         }
-        response = requests.request("POST", "http://" + randomUrl + "/rest/keyStore/accountInfo", data=payload,
+        response = requests.request("POST", randomUrl + "/rest/keyStore/accountInfo", data=payload,
                                     headers=headers)
         print(response.text)
         print("")
@@ -157,7 +157,7 @@ def sellDexETH(url, vaults, pairRate, offerAmount):
         print(randomUrl)
         try:
             print(" <-------- START SELL ORDER ----------> ")
-            response = requests.request("POST", "http://" + randomUrl + "/rest/dex/offer", data=payload,
+            response = requests.request("POST", randomUrl + "/rest/dex/offer", data=payload,
                                     headers=headers)
             print("RESPONSE ETH = " + str(response.json()))
             time.sleep(10)
@@ -199,7 +199,7 @@ def sellDexPAX(url, vaults, pairRate, offerAmount):
         print(randomUrl)
         try:
             print(" <-------- START SELL ORDER ----------> ")
-            response1 = requests.request("POST", "http://" + randomUrl + "/rest/dex/offer", data=payload1,
+            response1 = requests.request("POST", randomUrl + "/rest/dex/offer", data=payload1,
                                         headers=headers)
             print("RESPONSE PAX = " + str(response1.json()))
             time.sleep(10)
@@ -238,7 +238,7 @@ def buyDexETH(url, vaults, pairRate, offerAmount):
 
         try:
             print(" <-------- START BUY ORDER ----------> ")
-            response = requests.request("POST", "http://" + randomUrl + "/rest/dex/offer", data=payload,
+            response = requests.request("POST", randomUrl + "/rest/dex/offer", data=payload,
                                     headers=headers)
             print("RESPONSE ETH = " + str(response.json()))
             time.sleep(10)
@@ -273,7 +273,7 @@ def buyDexPAX(url, vaults, pairRate, offerAmount):
 
         try:
             print(" <-------- START BUY ORDER ----------> ")
-            response1 = requests.request("POST", "http://" + randomUrl + "/rest/dex/offer", data=payload1,
+            response1 = requests.request("POST", randomUrl + "/rest/dex/offer", data=payload1,
                                         headers=headers)
             print("RESPONSE PAX = " + str(response1.json()))
             time.sleep(10)

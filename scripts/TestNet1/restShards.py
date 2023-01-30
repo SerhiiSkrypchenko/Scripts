@@ -27,7 +27,7 @@ elif testNet == "t4":
 elif testNet == "stage":
     functions.restShardsTn(testNetStage.t15All)
 else:
-    print("entered testNet is invalid")
+    print("Entered testNet is invalid")
 
 
 #functions.restShards(localhost)
